@@ -1,0 +1,59 @@
+/* Importando una fuente externa */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;400&display=swap");
+/* Importando una fuente local */
+@font-face {
+  font-family: "harry";
+  src: url("./HARRYP__.TTF");
+}
+
+body {
+  background: #444;
+  color: white;
+}
+
+.fuenteharry {
+  font-family: "harry";
+  font-size: 20px;
+}
+
+.titulo {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  /* font-style: italic; */
+}
+
+.tituloh2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+}
+
+.parrafo1 {
+  /* tipo de letra */
+  font-family: Arial, Helvetica, sans-serif;
+  /* Tamanio de letra */
+  /* por defecto es 16px en el 98% de los disposi-
+  tivos */
+  font-size: 20px;
+  font-weight: 800;
+}
+.parrafo2 {
+  text-align: center;
+  line-height: 30px;
+}
+
+.titulo3 {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 10px;
+  word-spacing: 20px;
+  font-size: 35px;
+  text-align: center;
+}
+
+.subrayado {
+  text-decoration: line-through;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
