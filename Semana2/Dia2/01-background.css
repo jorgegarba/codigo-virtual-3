@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section1 {
+  background-color: #e5dafa;
+  height: 200px;
+}
+
+.section2 {
+  height: 500px;
+  background-color: #d8f5db;
+  background-image: url("./frutas.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  /* background-position: center bottom; */
+}
+
+.contenedor {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 500px;
+  padding-top: calc(250px - 0.5rem);
+}
+.contenedor h1 {
+  text-align: center;
+  word-spacing: 20px;
+  letter-spacing: 8px;
+}
+
+.section3 {
+  height: 1000px;
+  background-image: url("./papel.jpg");
+  /* background-repeat: no-repeat; */
+}
