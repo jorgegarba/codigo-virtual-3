@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section1 {
+  height: 500px;
+  width: 500px;
+  border: 1px solid blueviolet;
+  margin: 50px auto 0 auto;
+}
+
+.cuadrado {
+  width: 100px;
+  height: 100px;
+  background-color: violet;
+  /* transform: scale(1.1, 2); */
+}
+
+.cuadrado:hover {
+  transform: scale(1.2) rotate(45deg);
+  filter: blur(2px);
+}
+
+.circulo {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: darkred;
+  /* transform: translate(50px, -50px); */
+  /* Al colocar porcentajes, se toma como referencia
+  el valor del tamaño del elemento 
+  Ejm: 100% => 100px*/
+
+  transform: translate(-100%, -100%);
+}

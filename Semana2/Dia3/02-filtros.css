@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section2 {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  cursor: pointer;
+  /* filter: blur(1px); */
+  opacity: 0.5;
+}
+
+.section1 {
+  width: 200px;
+  height: 200px;
+}
+
+.section1 img {
+  width: 200px;
+  /* filter: blur(5px); */
+  filter: grayscale(1);
+}
+
+/* :hover estilos que se aplicarán cuando el mouse se encuentren sobre el elemento */
+.section1 img:hover {
+  filter: none;
+  cursor: pointer;
+}
