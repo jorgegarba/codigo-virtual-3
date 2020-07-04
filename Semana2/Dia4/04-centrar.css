@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.contenedor {
+  width: 500px;
+  height: 500px;
+  background-color: #444;
+  margin: 50px auto 0 auto;
+}
+
+.contenido {
+  width: 100px;
+  height: 100px;
+  background-color: crimson;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  border-radius: 50%;
+}

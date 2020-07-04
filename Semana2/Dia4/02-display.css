@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #444;
+}
+.section1 {
+  width: 500px;
+  height: 500px;
+  border: 1px solid yellow;
+  margin: 50px auto 0 auto;
+}
+
+.article1 {
+  display: inline-block;
+  width: 20%;
+  height: 250px;
+  background-color: coral;
+}
+
+.article2 {
+  display: inline-block;
+  width: 79%;
+  height: 250px;
+  background-color: teal;
+}
