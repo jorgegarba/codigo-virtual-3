@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+:root {
+  --color-primario: #e84d3b;
+}
+body {
+  background-color: #eee;
+}
+
+.card {
+  height: 400px;
+  width: 300px;
+  background-color: white;
+}
+
+.card__imagen {
+  height: 60%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__imagen img {
+  width: 100%;
+  transform: translate(0, -60px);
+}
+
+.card__photos {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--color-primario);
+  color: white;
+  padding: 8px 11px;
+  border-radius: 1px;
+}
+
+.card__fecha {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primario);
+  color: white;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 0.8rem;
+  padding-top: 7px;
+}
+
+.card__fecha span {
+  font-size: 0.6rem;
+}
