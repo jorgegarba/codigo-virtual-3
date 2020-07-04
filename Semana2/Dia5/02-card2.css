@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -8,12 +10,41 @@
 }
 body {
   background-color: #eee;
+  font-family: "Roboto", sans-serif;
+}
+header {
+  height: 60px;
+  background: -webkit-linear-gradient(left, var(--color-primario), #ee9389);
+}
+
+h1 {
+  color: #444;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.cards {
+  padding: 0 50px 50px 50px;
+  text-align: center;
+}
+
+.color-primario {
+  color: var(--color-primario);
 }
 
 .card {
   height: 400px;
   width: 300px;
   background-color: white;
+  cursor: pointer;
+  border-radius: 2px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 20px;
+}
+.card,
+.card * {
+  transition: all 0.2s ease;
 }
 
 .card__imagen {
@@ -52,4 +83,51 @@ body {
 
 .card__fecha span {
   font-size: 0.6rem;
+}
+
+.card__info {
+  padding: 20px;
+  position: relative;
+  height: 40%;
+}
+
+.card__subtitulo {
+  color: var(--color-primario);
+  margin-top: 5px;
+}
+
+.card__feed {
+  color: #888;
+  position: absolute;
+  bottom: 20px;
+}
+
+.card__descripcion {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.1rem;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.card:hover .card__imagen {
+  height: 40%;
+}
+
+.card:hover .card__imagen img {
+  filter: brightness(0.5);
+}
+
+.card:hover .card__info {
+  height: 60%;
+}
+
+.card:hover .card__descripcion {
+  visibility: visible;
+  opacity: 1;
+}
+.card:hover {
+  box-shadow: #bbb 0px 0px 20px;
+  transform: scale(1.05);
 }
