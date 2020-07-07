@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background-color: #444;
+  color: white;
+}
+
+/* Cuando => flex-direction:row */
+/* Eje principal => X u horizontal */
+/* Eje secundario => Y o vertical */
+
+/* Cuando => flex-direction:column */
+/* Eje principal => Y o vertical */
+/* Eje secundario => X u horizontal */
+
+/* ¿Como se alinean los elementos en el eje principal? */
+/* justify-content */
+/* Como se alinean los elementos en el eje secundario */
+/* align-items */
+
+.main {
+  display: flex;
+  height: 500px;
+  border: 1px solid white;
+  /* justify-content: flex-start; */
+  /* justify-content: flex-end; */
+  /* justify-content: center; */
+  /* justify-content: space-between; */
+  /* justify-content: space-around; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section1 {
+  background-color: tomato;
+  width: 200px;
+  height: 200px;
+}
+.section2 {
+  background-color: rebeccapurple;
+  width: 200px;
+  height: 200px;
+}
+.section3 {
+  background-color: pink;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bolita {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: darkred;
+}
+.main2 {
+  display: flex;
+  height: 300px;
+  border: 1px solid white;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+.section4 {
+  width: 100px;
+  height: 100px;
+  background-color: #bbb;
+}
