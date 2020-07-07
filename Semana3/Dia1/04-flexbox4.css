@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+:root {
+  --color-primario: #e84d3b;
+}
+body {
+  background-color: #eee;
+  font-family: "Roboto", sans-serif;
+  padding-top: 60px;
+}
+header {
+  z-index: 1000;
+  height: 60px;
+  background: -webkit-linear-gradient(left, var(--color-primario), #ee9389);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.card {
+  height: 400px;
+  width: 300px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 2px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 20px;
+}
+.card,
+.card * {
+  transition: all 0.2s ease;
+}
+
+.card__imagen {
+  height: 60%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__imagen img {
+  width: 100%;
+  transform: translate(0, -60px);
+}
+
+.card__photos {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--color-primario);
+  color: white;
+  padding: 8px 11px;
+  border-radius: 1px;
+}
+
+.card__fecha {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primario);
+  color: white;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 0.8rem;
+  padding-top: 7px;
+}
+
+.card__fecha span {
+  font-size: 0.6rem;
+}
+
+.card__info {
+  padding: 20px;
+  position: relative;
+  height: 40%;
+}
+
+.card__subtitulo {
+  color: var(--color-primario);
+  margin-top: 5px;
+}
+
+.card__feed {
+  color: #888;
+  position: absolute;
+  bottom: 20px;
+}
+
+.card__descripcion {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.1rem;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.card:hover .card__imagen {
+  height: 40%;
+}
+
+.card:hover .card__imagen img {
+  filter: brightness(0.5);
+}
+
+.card:hover .card__info {
+  height: 60%;
+}
+
+.card:hover .card__descripcion {
+  visibility: visible;
+  opacity: 1;
+}
+.card:hover {
+  box-shadow: #bbb 0px 0px 20px;
+  transform: scale(1.05);
+}
+.menu {
+  background-color: rgb(233, 172, 166);
+  flex: 1;
+  max-width: 240px;
+}
+.principal {
+  flex: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.main {
+  display: flex;
+}

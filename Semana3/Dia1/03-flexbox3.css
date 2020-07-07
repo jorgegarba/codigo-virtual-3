@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background-color: #444;
+  color: white;
+}
+main {
+  width: 350px;
+  border: 1px solid white;
+  height: 600px;
+  display: flex;
+  /* Valor por defecto de flex-wrap: nowrap; */
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* align-items: center; */
+
+  /* La propiedad align-content, sirve para alinear los elementos
+  cuando la propiedad flex-wrap está en "wrap" y los elementos han
+  colapsado formando así más de una fila en el caso de flex row o más de
+  una columna en el caso de flex column */
+  align-content: center;
+}
+
+main div {
+  width: 100px;
+  height: 50px;
+  margin: 20px;
+  
+}
+main div:nth-child(even) {
+  background-color: tomato;
+}
+main div:nth-child(odd) {
+  background-color: teal;
+}
+.caja5 {
+  /* margin-right: auto; */
+
+}
