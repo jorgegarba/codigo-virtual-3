@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background-color: crimson;
+}
+
+/* ¿Cómo se lee?*/
+/* Para todas las pantallas de dispositivos
+que además tengan un máximo de ancho de 1024px */
+
+@media screen and (max-width: 1024px) {
+  body {
+    background-color: darkgray;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: darkslategray;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body {
+    background-color: goldenrod;
+  }
+}

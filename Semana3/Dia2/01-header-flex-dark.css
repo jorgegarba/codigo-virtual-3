@@ -1,0 +1,7 @@
+.header {
+  background: -webkit-linear-gradient(left, #444, #888);
+}
+
+.header__item:hover {
+  background-color: #444;
+}

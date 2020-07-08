@@ -18,9 +18,16 @@ body {
   height: 60px;
   background: -webkit-linear-gradient(left, var(--color-primario), #ee9389);
   display: flex;
-  padding: 0 50px;
   box-shadow: #888 0px 0px 20px;
 }
+
+.header__contenedor {
+  display: flex;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .header__logo {
   width: 200px;
   text-align: center;
