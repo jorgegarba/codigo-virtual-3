@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --color-primario: #e84d3b;
+}
+
+.header {
+  height: 60px;
+  background: -webkit-linear-gradient(left, var(--color-primario), #ee9389);
+  display: flex;
+  box-shadow: #888 0px 0px 20px;
+}
+
+.header__contenedor {
+  display: flex;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header__logo {
+  width: 200px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.header__logo img {
+  height: 100%;
+}
+
+.header__navegacion {
+  flex: 1;
+  display: flex;
+}
+.header__lista {
+  flex: 1;
+  list-style: none;
+  display: flex;
+}
+
+.header__item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.header__item:hover {
+  background-color: var(--color-primario);
+  flex: 1.4;
+}
+
+.header__link {
+  text-decoration: none;
+  color: white;
+}
+
+.header__icon {
+  display: none;
+  color: white;
+}
+
+/* 
+screen => para la pantalla del dispositivo
+print => para modo de impresión
+speech => para los lectores de páginas (accesibilidad)
+all => para todos los medias anteriores
+ */
+
+ 
+
+@media screen and (max-width: 480px) {
+  .header:hover .header__lista {
+    height: 120px;
+  }
+  .header__lista {
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: -webkit-linear-gradient(left, var(--color-primario), #ee9389);
+    height: 0px;
+  }
+  .header__icon {
+    display: inline-block;
+    margin-right: 40px;
+  }
+  .header__navegacion {
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
