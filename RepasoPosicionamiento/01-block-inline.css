@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.padre {
+  background-color: crimson;
+  height: 500px;
+}
+.hijo1 {
+  background-color: dodgerblue;
+  display: inline-block;
+  width: 100px;
+}
+.hijo2 {
+  background-color: gold;
+  display: inline-block;
+  width: 100px;
+}
+/* PROBLEMA */
+/* Los elementos inline-block provocan un espacio entre elemento y elemento */

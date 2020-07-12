@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.padre {
+  background-color: crimson;
+  height: 500px;
+  display: flex;
+  /* propiedad invisible por defecto*/
+  /* flex-direction: row; */
+
+  /* Cuando se está en row: */
+
+  /* Alineación horizontal (eje X)*/
+  /* justify-content */
+  /* Requisito: no debe estar ocupado el 100% del ancho del padre*/
+
+  /* Alineación vertical (eje Y)*/
+  /* align-items */
+  /* Requisito: no debe estar ocupado el 100% de la altura del padre */
+
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.hijo1 {
+  background-color: dodgerblue;
+  width: 100px;
+  height: 200px;
+}
+.hijo2 {
+  background-color: gold;
+  width: 100px;
+  height: 200px;
+}
+
+.padre2 {
+  background-color: crimson;
+  height: 500px;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+}
+.hijo3 {
+  background-color: dodgerblue;
+  width: 50%;
+  height: 250px;
+}
+.hijo4 {
+  background-color: gold;
+  width: 50%;
+  height: 250px;
+}
+
+.padre3 {
+  height: 500px;
+  width: 80%;
+  display: flex;
+  background-color: crimson;
+  /* propiedad invisible por defecto */
+  /* no-wrap: si los hijos exceden en el ancho del padre
+  no harán un salto de línea */
+  /* flex-wrap: no-wrap; */
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  /* align-items: center; */
+  /* align-content: es usado únicamente para alinear elementos
+  en el eje secundario cuando la propiedad flex-wrap = wrap y 
+  cuando los elementos han colapsado */
+  /* align-content: center; */
+  padding: 20px;
+}
+
+/* seleccionar a todos los hijos a primer nivel */
+.padre3 > article {
+  /* min-width: 300px; */
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.hijo5 {
+  background-color: dodgerblue;
+  width: 50%;
+}
+.hijo6 {
+  background-color: gold;
+  width: 50%;
+}
+.hijo7 {
+  background-color: dodgerblue;
+  width: 50%;
+}
+.hijo8 {
+  background-color: gold;
+  width: 50%;
+}
+.hijo9 {
+  background-color: dodgerblue;
+  width: 50%;
+}
+.hijo10 {
+  background-color: gold;
+  width: 50%;
+}
