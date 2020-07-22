@@ -64,7 +64,7 @@ console.log(respuesta);
  * @param {*} cadena
  */
 const esPalindromo = (cadena) => {
-  let cadenaUnida = cadenaUnida.toLowerCase();
+  let cadenaUnida = cadena.toLowerCase();
   cadenaUnida = quitarEspacios(cadenaUnida);
 
   let cadenaReves = "";
