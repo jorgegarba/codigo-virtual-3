@@ -60,6 +60,11 @@ class Restaurant {
       console.log(`Telefono: ${tel}`);
     }
   }
+
+  toString() {
+    return this.nombre;
+  }
+
 }
 
 // Instanciando una clase : Creando un objeto a partir de una clase
@@ -72,7 +77,9 @@ let objTanta = new Restaurant(
   "Tanta",
   true
 );
+
 let objAstrid = new Restaurant();
+
 // Modificando los atributos de un objeto
 // objAstrid.aforo = 1000;
 
@@ -81,3 +88,22 @@ console.log(objAstrid);
 
 objTanta.imprimirTelefonos();
 objTanta.imprimirTelefonos2();
+
+
+
+
+
+
+
+
+// // esto es una clase a la antigua en JS
+// function Curso(){
+//   var retorno = {
+//     nombre:"sin nombre",
+//     horas:0,
+//     profe:"nadie"
+//   }
+//   return retorno;
+// }
+
+// let cursoAlgoritmos = new Curso();
