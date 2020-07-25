@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.header {
+  height: 60px;
+  background: -webkit-linear-gradient(top, #444444, #666666);
+}
+.seccion1 {
+  height: 2000px;
+  color: #ddd;
+  width: 400px;
+  margin: 0 auto;
+  background-color: #555555;
+}
+.astronauta {
+  height: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
+}
