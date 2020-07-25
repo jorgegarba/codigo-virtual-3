@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+      header {
+        height: 60px;
+        background: -webkit-linear-gradient(top, #444444, #555555);
+      }
+      body {
+        background-color: #444444;
+      }
+      .seccion1 {
+        height: 400px;
+        width: 400px;
+        background: #555;
+        margin: 0 auto;
+      }
+      .botones {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      .sombra-light {
+        box-shadow: #aaa 0px 0px 20px;
+      }
+      .sombra-darks {
+        box-shadow: #666 0px 0px 10px;
+			}
+			
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <div class="botones">
+      <button id="btnLight">Sombra Light</button>
+      <button id="btnDarks">Sombra Dark's</button>
+      <button id="btnToggle">Sombra Toggle</button>
+    </div>
+    <section class="seccion1"></section>
+
+    <script src="./02-element2.js"></script>
+  </body>
+</html>
