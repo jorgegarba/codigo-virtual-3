@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .lista-item {
+        color: red;
+        cursor: pointer;
+      }
+      .lista-item:hover {
+        transform: scale(1.1);
+        color: blue;
+      }
+    </style>
   </head>
   <body>
-    
     <section>
-        <h4>Números de lotería</h4>
-        <ul id="lista">
-
-        </ul>
-        <button id="btnGenerar">Generar nuevo número</button>
+      <h4>Números de lotería</h4>
+      <ul id="lista"></ul>
+      <button id="btnGenerar">Generar nuevo número</button>
     </section>
 
     <script src="./02-element4.js"></script>

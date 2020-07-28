@@ -23,8 +23,8 @@ btnTitulo2.onclick = () => {
 
 const llenarSelect = () => {
   let contenido = "";
-  peliculas.forEach((objPelicula) => {
-    contenido = contenido + `<option value="${}">${objPelicula.title}</option>`;
+  peliculas.forEach((objPelicula,i) => {
+    contenido = contenido + `<option value="${objPelicula.id}">${objPelicula.title}</option>`;
   });
   selectPeliculas.innerHTML = contenido;
 };
