@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --color-primario: #e84d3b;
+}
+
+.header {
+  height: 60px;
+  background: -webkit-linear-gradient(left, var(--color-primario), #ee9389);
+  display: flex;
+  box-shadow: #888 0px 0px 20px;
+}
+
+.header__contenedor {
+  display: flex;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header__logo {
+  width: 200px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.header__logo img {
+  height: 100%;
+}
+
+.header__navegacion {
+  flex: 1;
+  display: flex;
+}
+.header__lista {
+  flex: 1;
+  list-style: none;
+  display: flex;
+}
+
+.header__item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.header__item:hover {
+  background-color: var(--color-primario);
+  flex: 1.4;
+}
+
+.header__link {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-toggle {
+  outline: none;
+  color: white;
+  background-color: var(--color-primario);
+  padding: 8px 10px;
+  border: none;
+  border-bottom: 4px solid #8b281d;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-toggle:hover {
+  border-bottom: 2px solid #8b281d;
+  transform: translate(0, 2px);
+}

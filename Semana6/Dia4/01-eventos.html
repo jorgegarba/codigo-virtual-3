@@ -2,8 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./01-header-flex.css" />
-    <!-- <link rel="stylesheet" href="./01-header-flex-dark.css" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./01-eventos-light.css" />
+    <link rel="stylesheet" href="" id="linkDark" />
+
+    <style>
+      .cuadrado {
+        width: 200px;
+        height: 200px;
+        background-color: crimson;
+        margin: 20px auto 0 auto;
+      }
+    </style>
     <title>Document</title>
   </head>
   <body>
@@ -30,5 +40,20 @@
         </nav>
       </div>
     </header>
+
+    <button id="btnDark">
+      Estilo Dark
+    </button>
+    <button id="btnLight">
+      Estilo Light
+    </button>
+
+    <button id="btnToggle" class="btn-toggle">
+      Cambiar Estilo
+    </button>
+
+    <div id="cuadrado" class="cuadrado"></div>
+
+    <script src="./01-eventos.js"></script>
   </body>
 </html>

@@ -1,0 +1,15 @@
+.header {
+  background: -webkit-linear-gradient(left, #444, #888);
+}
+
+.header__item:hover {
+  background-color: #444;
+}
+
+.btn-toggle {
+  background-color: #444;
+  border-bottom: 4px solid #222;
+}
+.btn-toggle:hover {
+  border-bottom: 2px solid #222;
+}
