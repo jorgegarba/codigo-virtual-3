@@ -12,6 +12,19 @@
         height: 200px;
         background-color: crimson;
         margin: 20px auto 0 auto;
+        position: relative;
+      }
+      .bolita {
+        width: 5px;
+        height: 5px;
+        background-color: yellow;
+        border-radius: 50%;
+        position: absolute;
+        display: none;
+        pointer-events: none;
+      }
+      .sombra {
+        box-shadow: 0px 0px 10px #888;
       }
     </style>
     <title>Document</title>
@@ -53,6 +66,8 @@
     </button>
 
     <div id="cuadrado" class="cuadrado"></div>
+    <div id="cuadrado2" class="cuadrado"></div>
+    <div id="cuadrado3" class="cuadrado"></div>
 
     <script src="./01-eventos.js"></script>
   </body>
