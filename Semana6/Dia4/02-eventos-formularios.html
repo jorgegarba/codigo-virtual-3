@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./data-usuarios.js"></script>
     <script src="./02-eventos-formularios.js"></script>
     <title>Document</title>
     <style>
@@ -20,13 +21,28 @@
       form input {
         width: 100%;
       }
+      .text-success {
+        color: #30a720;
+      }
+      .text-danger {
+        color: crimson;
+      }
+      .input-success {
+        border: 1px solid #30a720;
+        outline: 1px solid #30a720;
+      }
+      .input-danger {
+        border: 1px solid crimson;
+        outline: 1px solid crimson;
+      }
     </style>
   </head>
   <body>
     <form id="formulario">
       <p>
         <label>Usuario</label>
-        <input type="email" id="inputEmail" />
+        <input type="email" id="inputEmail" placeholder="Ingrese su correo" />
+        <small id="helperEmail"></small>
       </p>
       <p>
         <label>Contraseña</label>
