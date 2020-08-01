@@ -11,22 +11,29 @@ window.onload = () => {
   let helperEmail = document.getElementById("helperEmail");
 
   const validarEmail = (email) => {
-    let resultados = usuarios.filter((objUsuario) => {
-      if (objUsuario.correo === email) {
-        return objUsuario.correo;
-      }
-    });
+    let regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (resultados.length > 0) {
-      helperEmail.innerText = "ERRORSH! el email ya está siendo usado";
-      helperEmail.classList.remove("text-success");
-      helperEmail.classList.add("text-danger");
-      inputEmail.setAttribute("class","input-danger");
+    if (regexEmail.test(email) === false) {
+      helperEmail.innerText = "Error, ingrese un correo válido";
+      helperEmail.setAttribute("class", "text-danger");
     } else {
-      helperEmail.innerText = "BIEN! el email está disponible";
-      helperEmail.classList.remove("text-danger");
-      helperEmail.classList.add("text-success");
-      inputEmail.setAttribute("class","input-success");
+      let resultados = usuarios.filter((objUsuario) => {
+        if (objUsuario.correo === email) {
+          return objUsuario.correo;
+        }
+      });
+
+      if (resultados.length > 0) {
+        helperEmail.innerText = "ERRORSH! el email ya está siendo usado";
+        helperEmail.classList.remove("text-success");
+        helperEmail.classList.add("text-danger");
+        inputEmail.setAttribute("class", "input-danger");
+      } else {
+        helperEmail.innerText = "BIEN! el email está disponible";
+        helperEmail.classList.remove("text-danger");
+        helperEmail.classList.add("text-success");
+        inputEmail.setAttribute("class", "input-success");
+      }
     }
   };
 
@@ -50,6 +57,36 @@ window.onload = () => {
     // console.log(e);
     // console.log(e.key);
     // console.log("presionando una tecla");
+
     validarEmail(inputEmail.value.trim());
+  };
+
+  /**
+   * formulario.onsubmit, evento que se ejecuta cuando se hace
+   * submit en un formulario
+   */
+  formulario.onsubmit = (e) => {
+    /**
+     * preventDefault => previene todas las acciones automaticas
+     * disparadas por cualquier evento
+     * ejm: el CLICK en un enlace <a> redirecciona a una pagina
+     * ejm: el SUBMIT de un formulario envía datos al server
+     * y actualiza la página
+     * ejm: el CLICK DERECHO en cualquier zona, abre un menu
+     * contextual en la página
+     * CONCLUSIÓN: cualquiera de estos eventos pueden ser evitados
+     */
+    e.preventDefault();
+    console.log("submit del formulario");
+
+    let objetoUsuario = {
+      usuario: inputEmail.value,
+      password: inputPassword.value,
+    };
+    console.log("Enviando......");
+    console.log(objetoUsuario);
+  };
+  enlace.onclick = (e) => {
+    e.preventDefault();
   };
 };
