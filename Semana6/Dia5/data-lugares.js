@@ -1,20 +1,8 @@
 let paises = [
-  {
-    id: 1,
-    nombre: "Perú",
-  },
-  {
-    id: 2,
-    nombre: "Bolivia",
-  },
-  {
-    id: 3,
-    nombre: "Chile",
-  },
-  {
-    id: 4,
-    nombre: "Argentina",
-  },
+  { id: 1, nombre: "Perú" },
+  { id: 2, nombre: "Bolivia" },
+  { id: 3, nombre: "Chile" },
+  { id: 4, nombre: "Argentina" },
 ];
 
 let departamentos = [

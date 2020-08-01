@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #eee;
+      }
+      form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #888;
+        width: 500px;
+        margin: 20px auto 0px auto;
+      }
+      form input {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formulario">
+      <p>
+        <label for="inputNombre">Nombres:</label>
+        <input type="text" name="nombre" id="inputNombre" />
+      </p>
+      <p>
+        <label for="inputApellido">Apellidos:</label>
+        <input type="text" name="apellido" id="inputApellido" />
+      </p>
+      <p>
+        <label for="inputFecha">Fecha Nacimiento:</label>
+        <input type="date" name="fecha" id="inputFecha" />
+      </p>
+      <p>
+        <label><strong> Seleccione turno:</strong></label>
+        <br />
+        <label for="">Mañana</label>
+        <input type="radio" value="manana" name="turno" id="inputTurnoM" checked />
+        <label for="">Tarde</label>
+        <input type="radio" value="tarde" name="turno" id="inputTurnoT" />
+        <label for="">Noche</label>
+        <input type="radio" value="noche" name="turno" id="inputTurnoN" />
+      </p>
+      <button type="submit">Enviar Formulario</button>
+    </form>
+
+    <script src="./01-eventos-formularios3.js"></script>
+  </body>
+</html>

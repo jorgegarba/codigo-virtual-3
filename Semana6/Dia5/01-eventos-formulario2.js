@@ -3,9 +3,11 @@ let selectDepartamento = document.getElementById("selectDepartamento");
 
 const poblarPaises = () => {
   let options = "<option value=0>--- Seleccione un País ---</option>";
+
   paises.forEach((objPais) => {
     options += `<option value="${objPais.id}">${objPais.nombre}</option>`;
   });
+
   selectPais.innerHTML = options;
 };
 
@@ -13,8 +15,14 @@ poblarPaises();
 
 const llenarDepartamentosByIdPais = (idPaisSeleccionado) => {
   let depasTemporales = departamentos.filter(
-    (objDepartamento) => objDepartamento.paisId == idPaisSeleccionado
+    (objDepartamento) => objDepartamento.paisId === idPaisSeleccionado
   );
+
+  if (depasTemporales.length === 0) {
+    selectDepartamento.innerHTML = "";
+    selectDepartamento.setAttribute("disabled", "disabled");
+    return;
+  }
 
   let options = "<option value=0>---Seleccione---</option>";
   depasTemporales.forEach((objDepa) => {
@@ -31,6 +39,6 @@ const llenarDepartamentosByIdPais = (idPaisSeleccionado) => {
  */
 selectPais.onchange = (e) => {
   console.log(e);
-  let idPaisSeleccionado = selectPais.value;
+  let idPaisSeleccionado = +selectPais.value;
   llenarDepartamentosByIdPais(idPaisSeleccionado);
 };
