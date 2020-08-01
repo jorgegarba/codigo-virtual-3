@@ -11,7 +11,7 @@ let objFormulario = {
   nombre: "",
   apellido: "",
   fecha: "",
-  turno: "",
+  turno: "manana",
 };
 
 const actualizarObjFormulario = (event) => {
