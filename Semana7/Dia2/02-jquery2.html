@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+      body {
+        background-color: #eee;
+        min-height: 100vh;
+      }
+      form,
+      .contenedor {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #888;
+        width: 500px;
+        margin: 20px auto 0px auto;
+      }
+      form input {
+        width: 100%;
+      }
+      .productos {
+        display: flex;
+        flex-wrap: wrap;
+				justify-content: center;
+      }
+      .productos__producto {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px #888;
+        padding: 10px;
+        width: 200px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formulario">
+      <p>
+        <label for="">Código de Producto</label>
+        <input type="number" name="codigo" id="inputCodigo" />
+      </p>
+      <p>
+        <label for="">Nombre de Producto</label>
+        <input type="text" name="nombre" id="inputNombre" />
+      </p>
+      <button type="submit">Agregar Producto</button>
+    </form>
+    <hr />
+    <section class="productos" id="productos">
+      
+			
+    </section>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./02-jquery2.js"></script>
+  </body>
+</html>
