@@ -2,6 +2,14 @@ let formulario = document.getElementById("formulario");
 let inputCodigo = document.getElementById("inputCodigo");
 let inputNombre = document.getElementById("inputNombre");
 let tbody = document.getElementById("tbody");
+let inputColor = document.getElementById("inputColor");
+let menu = document.getElementById("menu");
+
+inputColor.onchange = () => {
+  let body = document.querySelector("body");
+  body.style.backgroundColor = inputColor.value;
+  localStorage.setItem("color", inputColor.value);
+};
 
 let productos = [];
 
@@ -58,6 +66,7 @@ formulario.onsubmit = (e) => {
  */
 const verificarStorage = () => {
   let productosStorage = window.localStorage.getItem("listaproductos");
+  let colorStorage = localStorage.getItem("color");
   /**
    * preguntamos si habían datos con esa clave(listaproductos) en el storage
    */
@@ -66,13 +75,28 @@ const verificarStorage = () => {
     productos = productosJSON;
     llenarTabla();
   }
+  if (colorStorage) {
+    document.querySelector("body").style.backgroundColor = colorStorage;
+    inputColor.value = colorStorage;
+  }
 };
 verificarStorage();
 
+// window.onbeforeunload = (e) => {
+//   e.preventDefault();
+//   // borrar el localstorage antes de cerrar la página
+//   // window.localStorage.removeItem("listaproductos");
+//   return "asdasd";
+// };
 
-window.onbeforeunload  = (e) => {
-	// e.preventDefault();
-	// borrar el localstorage antes de cerrar la página
-	window.localStorage.removeItem("listaproductos");
-  return ;  
+document.querySelector("body").oncontextmenu = (e) => {
+  e.preventDefault();
+  // aqui podrían dibujar un menu contextual propio de la aplicación
+  menu.style.left = `${e.clientX}px`;
+  menu.style.top = `${e.clientY}px`;
+  menu.removeAttribute("hidden");
+};
+
+document.querySelector("body").onclick = (e) => {
+  menu.setAttribute("hidden", "hidden");
 };
