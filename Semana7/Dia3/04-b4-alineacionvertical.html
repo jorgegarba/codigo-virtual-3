@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+      integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background-color: #444;
+      }
+      .altura-300 {
+        height: 300px;
+        border: 1px dotted #aaa;
+      }
+      .altura-100 {
+        height: 100px;
+      }
+      .fondo-plomo {
+        background-color: #888;
+        color: white;
+      }
+      .fondo-blanco {
+        background-color: #eee;
+      }
+      h4 {
+        color: #ddd;
+      }
+
+      @media screen and (max-width: 768px) {
+        .margen-inferior {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container-fluid">
+      <h4>Alineación vertical - alinear el contenido al centro en el eje Y</h4>
+      <code>align-items-center</code>
+      <div class="row altura-300 align-items-center">
+        <div class="col-md-4 altura-100 fondo-plomo">Columna 1</div>
+        <div class="col-md-4 altura-100 fondo-blanco">Columna 2</div>
+        <div class="col-md-4 altura-100 fondo-plomo">Columna 3</div>
+      </div>
+      <hr />
+      <h4>Alineación vertical - alinear el contenido al final en el eje Y</h4>
+      <code>align-items-end</code>
+      <div class="row altura-300 align-items-end">
+        <div class="col-md-4 altura-100 margen-inferior fondo-plomo">Columna 1</div>
+        <div class="col-md-4 altura-100 margen-inferior fondo-blanco">Columna 2</div>
+        <div class="col-md-4 altura-100 margen-inferior fondo-plomo">Columna 3</div>
+      </div>
+      <hr />
+      <h4>Alineación vertical - alinear un elemento por sí mismo</h4>
+      <code>align-self-[start,center,end]</code>
+      <div class="row altura-300">
+        <div class="col-md-4 altura-100 fondo-plomo">Columna 1</div>
+        <div class="col-md-4 altura-100 fondo-blanco align-self-center">
+          Columna 2
+        </div>
+        <div class="col-md-4 altura-100 fondo-plomo align-self-end">
+          Columna 3
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+      integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
