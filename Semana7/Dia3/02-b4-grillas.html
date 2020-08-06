@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+      integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .fondo-rojo {
+        background-color: crimson;
+        color: white;
+      }
+      .fondo-azul {
+        background-color: darkcyan;
+        color: white;
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container-fluid">
+      <h3>Una fila <code>.row</code> con 4 columnas <code>.col</code></h3>
+      <div class="row">
+        <div class="col fondo-rojo">
+          Fila 1 Columna 1
+        </div>
+        <div class="col fondo-azul">
+          Fila 1 Columna 2
+        </div>
+        <div class="col fondo-rojo">
+          Fila 1 Columna 3
+        </div>
+        <div class="col fondo-azul">
+          Fila 1 Columna 4
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-6 fondo-rojo">
+          Fila 2 Columna 1
+        </div>
+        <div class="col-2 fondo-azul">
+          Fila 2 Columna 2
+        </div>
+        <div class="col-2 fondo-rojo">
+          Fila 2 Columna 3
+        </div>
+        <div class="col-2 fondo-azul">
+          Fila 2 Columna 4
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-4 fondo-rojo">
+          Fila 3 Columna 1
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col-6 fondo-azul">
+              Columna interna 1
+            </div>
+            <div class="col-6 fondo-rojo">
+              Columna interna 2
+            </div>
+					</div>
+					<div class="row">
+						<div class="col-6 fondo-rojo">
+              Columna interna 1
+            </div>
+            <div class="col-6 fondo-azul">
+              Columna interna 2
+            </div>
+					</div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+      integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
