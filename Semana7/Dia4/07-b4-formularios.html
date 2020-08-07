@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+      integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #eee;
+      }
+      .formulario1 {
+        background-color: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px #aaa;
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="row">
+        <div class="col">
+          <form class="formulario1">
+            <div class="form-group">
+              <label for="">Nombre:</label>
+              <input
+                type="text"
+                placeholder="Ejm: Jorgito"
+                class="form-control"
+              />
+              <small class="text-muted">Mínimo 3 caracteres</small>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Correo Electrónico:</label>
+              <input
+                type="text"
+                class="form-control is-invalid"
+                placeholder="Ejemplo: correo@gmail.com"
+                id="inputEmail"
+              />
+              <small class="text-danger">Escribe un email correcto</small>
+            </div>
+            <div class="form-group">
+              <label for="selectPais">Seleccione País:</label>
+              <select id="selectPais" class="form-control">
+                <option value="0">Perú</option>
+                <option value="1">Chile</option>
+                <option value="2">Colombia</option>
+                <option value="3">Ecuador</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary">Crear Usuario</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <hr />
+      <section class="row">
+        <div class="col">
+          <form class="row">
+            <div class="form-group col-md-6">
+              <label for="">Nombre:</label>
+              <input
+                type="text"
+                placeholder="Ejm: Jorgito"
+                class="form-control"
+              />
+              <small class="text-muted">Mínimo 3 caracteres</small>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Apellidos:</label>
+              <input
+                type="text"
+                placeholder="Ejm: Garnica"
+                class="form-control"
+              />
+              <small class="text-muted">Mínimo 3 caracteres</small>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Fecha Nacimiento:</label>
+              <input type="date" class="form-control" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Dni:</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="form-group col-md-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" id="checkPoo"/>
+                  </div>
+                </div>
+                <label for="checkPoo" class="form-control">Programación Orientada a Objetos</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+      integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
