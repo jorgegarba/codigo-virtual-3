@@ -15,6 +15,14 @@
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
     />
+    <!-- CDN CSS FLICKITY -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <!-- ESTILOS PROPIOS -->
+    <link rel="stylesheet" href="./css/estilos.css" />
+
     <title>Document</title>
   </head>
   <body class="bg-dark">
@@ -68,6 +76,20 @@
       </div>
     </nav>
 
+    <main class="container-fluid p-5">
+      <section class="row">PARA LA BUSQUEDA (pendiente)</section>
+      <section class="row">
+        <h2 class="text-light">Peliculas Populares</h2>
+
+        <div class="col-12 mt-4">
+          <div class="main-carousel" id="contenedor-carrusel">
+            <!-- AQUI LA DATA SE LLENA DINAMICAMENTE -->
+            
+          </div>
+        </div>
+      </section>
+    </main>
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -83,5 +105,11 @@
       integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
       crossorigin="anonymous"
     ></script>
+    <!-- CDN JS FLICKITY -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- <script src="./js/variables.js"></script>
+    <script src="./js/funciones.js"></script> -->
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
