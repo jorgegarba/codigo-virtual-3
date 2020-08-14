@@ -77,16 +77,28 @@
     </nav>
 
     <main class="container-fluid p-5">
-      <section class="row">PARA LA BUSQUEDA (pendiente)</section>
       <section class="row">
         <h2 class="text-light">Peliculas Populares</h2>
-
         <div class="col-12 mt-4">
           <div class="main-carousel" id="contenedor-carrusel">
             <!-- AQUI LA DATA SE LLENA DINAMICAMENTE -->
-            
           </div>
         </div>
+      </section>
+      <!-- Buscador -->
+      <section class="row mt-5 justify-content-center">
+        <form class="col-md-6">
+          <input
+            type="text"
+            placeholder="Buscar pelicula"
+            class="input-buscador"
+            id="input-buscador"
+          />
+        </form>
+      </section>
+      <!-- Resultados -->
+      <section class="row" id="resultados">
+        <!-- Se van a llenar dinamicamente -->
       </section>
     </main>
 

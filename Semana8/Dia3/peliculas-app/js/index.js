@@ -1,16 +1,56 @@
-import { getPopulares, limitarCaracteres } from "./funciones.js";
+import {
+  getPopulares,
+  limitarCaracteres,
+  buscarPeliculaPorNombre,
+} from "./funciones.js";
 import { URL_IMG } from "./variables.js";
 
 const contenedorCarrusel = document.getElementById("contenedor-carrusel");
+const inputBuscador = document.getElementById("input-buscador");
+const resultados = document.getElementById("resultados");
+
+inputBuscador.onkeyup = (e) => {
+  if (inputBuscador.value.length < 3) {
+    resultados.innerHTML = "";
+    // TODO: limpiar la zona de resultados
+    return;
+  }
+  buscarPeliculaPorNombre(inputBuscador.value).then((rpta) => {
+    console.log(rpta);
+    dibujarBusqueda(rpta);
+  });
+};
+
 let flick = new Flickity(contenedorCarrusel, {
   freeScroll: true,
+  autoPlay: 2000,
 });
+
+const dibujarBusqueda = ({ results }) => {
+  resultados.innerHTML = "";
+  results.forEach((objPelicula) => {
+    let col = document.createElement("div");
+    col.classList.add("col-md-2");
+    // card.setAttribute("class","card text-left");
+    col.innerHTML = `
+      <div class="card">
+        <img class="card-img-top" src="${URL_IMG}${objPelicula.poster_path}" 
+                                  alt="imagen de la pelicula">
+        <div class="card-body">
+            <h4 class="card-title">${objPelicula.title}</h4>
+            <p class="card-text">${limitarCaracteres(objPelicula)}</p>
+        </div>
+      </div>`;
+    resultados.appendChild(col);
+  });
+};
 
 const dibujarPopulares = ({ results }) => {
   results.forEach((objPelicula) => {
     let card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("text-left");
+    card.classList.add("card-flickity");
     // card.setAttribute("class","card text-left");
     card.innerHTML = `
         <img class="card-img-top" src="${URL_IMG}${objPelicula.poster_path}" 
