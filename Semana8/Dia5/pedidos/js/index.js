@@ -4,6 +4,20 @@ let cargandoMesas = document.getElementById("cargandoMesas");
 let cartaCategorias = document.getElementById("carta__categorias");
 let cartaPlatos = document.getElementById("carta__platos");
 let categoria_id = 0;
+let global_mesa_id = 0;
+
+/**
+ * Funcion que agrega o resta una unidad al pedido de la mesa actual
+ * Dado el identificador del plato
+ * @param {*} accion "sumar|restar"
+ * @param {*} id "id del plato a modificar"
+ */
+const sumarRestarPlato = (accion, id) => {
+  if (global_mesa_id === 0) {
+    return;
+  }
+  //TODO: -----
+};
 
 const dibujarMesas = (mesas) => {
   /**
@@ -18,6 +32,17 @@ const dibujarMesas = (mesas) => {
                         <span class="mesas__titulo">Mesa</span>
                         <span class="mesas__numero">${mesa.mesa_nro}</span>
                         `;
+    mesaLi.onclick = () => {
+      let mesasBotones = document.querySelectorAll(
+        ".mesas__lista .mesas__mesa"
+      );
+      let mesasBotonesArreglo = Array.from(mesasBotones);
+      mesasBotonesArreglo.forEach((li) => {
+        li.classList.remove("active");
+      });
+      global_mesa_id = mesa.mesa_id;
+      mesaLi.classList.add("active");
+    };
     fragment.appendChild(mesaLi);
   });
   mesasLista.appendChild(fragment);
@@ -40,6 +65,28 @@ const dibujarPlatosPorCategoria = (platos, id) => {
           <h4 class="carta__titulo">${plato.plato_nom}</h4>
           <span class="carta__precio">S/ ${plato.plato_pre.toFixed(2)}</span>
         `;
+      const btnContenedor = document.createElement("div");
+      btnContenedor.classList.add("carta__botones");
+
+      const btnSumar = document.createElement("button");
+      btnSumar.classList.add("btn", "btn-outline-primary", "btn-sumar");
+      btnSumar.innerText = "+1";
+      btnSumar.onclick = () => {
+        sumarRestarPlato("sumar", plato.plato_id);
+      };
+
+      const btnRestar = document.createElement("button");
+      btnRestar.classList.add("btn", "btn-outline-primary", "btn-restar");
+      btnRestar.innerText = "-1";
+      btnRestar.onclick = () => {
+        sumarRestarPlato("restar", plato.plato_id);
+      };
+
+      btnContenedor.appendChild(btnRestar);
+      btnContenedor.appendChild(btnSumar);
+
+      card.appendChild(btnContenedor);
+
       fragment.appendChild(card);
     }
   });

@@ -149,6 +149,7 @@ body {
   justify-content: space-evenly;
 }
 .container .tabla .pedido .carta__plato {
+  position: relative;
   cursor: pointer;
   color: #ddd;
   transition: 1s all ease;
@@ -244,3 +245,15 @@ body {
   background-color: #ff9c63;
   color: #ddd;
 }
+
+.carta__botones {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-sumar{
+  margin-left: 10px;
+}
+
