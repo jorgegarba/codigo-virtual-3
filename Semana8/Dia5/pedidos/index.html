@@ -47,49 +47,25 @@
       </nav>
       <section class="tabla">
         <div class="mesas">
-          <ul class="mesas__lista">
-            <li class="mesas__mesa">
+          <ul class="mesas__lista" id="mesas__lista" hidden>
+            <!-- Aqui se llenan la lista de mesas dinámicamente -->
+            <!-- <li class="mesas__mesa">
               <span class="mesas__titulo">Mesa</span>
               <span class="mesas__numero">01</span>
-            </li>
-            <li class="mesas__mesa">
-              <span class="mesas__titulo">Mesa</span>
-              <span class="mesas__numero">02</span>
-            </li>
-            <li class="mesas__mesa active">
-              <span class="mesas__titulo">Mesa</span>
-              <span class="mesas__numero">02</span>
-            </li>
-            <li class="mesas__mesa">
-              <span class="mesas__titulo">Mesa</span>
-              <span class="mesas__numero">02</span>
-            </li>
-            <li class="mesas__mesa">
-              <span class="mesas__titulo">Mesa</span>
-              <span class="mesas__numero">02</span>
-            </li>
-            <li class="mesas__mesa">
-              <span class="mesas__titulo">Mesa</span>
-              <span class="mesas__numero">02</span>
-            </li>
-            <li class="mesas__mesa">
-              <span class="mesas__titulo">Mesa</span>
-              <span class="mesas__numero">02</span>
-            </li>
-            <li class="mesas__mesa">
-              <span class="mesas__titulo">Mesa</span>
-              <span class="mesas__numero">02</span>
-            </li>
+            </li> -->
           </ul>
+          <div class="mesas__lista" id="cargandoMesas">
+            CARGANDO...
+          </div>
           <div class="mesas__info"></div>
         </div>
         <div class="pedido">
           <div class="carta">
-            <div class="carta__categorias">
-              <button class="btn btn-outline-primary active">Comida</button>
+            <div class="carta__categorias" id="carta__categorias">
+              <!-- <button class="btn btn-outline-primary active">Comida</button>
               <button class="btn btn-outline-primary">Bebida</button>
               <button class="btn btn-outline-primary">Jugos</button>
-              <button class="btn btn-outline-primary">Postres</button>
+              <button class="btn btn-outline-primary">Postres</button> -->
             </div>
             <div class="carta__platos">
               <div class="carta__plato">
@@ -196,5 +172,6 @@
         </div>
       </section>
     </main>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
