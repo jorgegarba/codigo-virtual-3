@@ -42,8 +42,40 @@ const sumarRestarPlato = (accion, id, precio) => {
 
   if (pedidoMesaActual) {
     // significa que la mesa actual seleccionada, ya tenia un pedido iniciado
+    // preguntar si el plato ya existe en el pedido actual
+    if (pedidoMesaActual.platos.find((plato) => plato.plato_id == id)) {
+      // verifricar si el plato que estoy sumando o restando, ya existia en el pedido
+      pedidoMesaActual.platos = pedidoMesaActual.platos.filter((plato) => {
+        if (accion === "sumar") {
+          if (plato.plato_id == id) {
+            plato.cant = plato.cant + 1;
+            plato.precio = plato.cant * precio;
+          }
+        } else {
+          if (plato.plato_id == id) {
+            plato.cant = plato.cant - 1;
+            plato.precio = plato.cant * precio;
+          }
+        }
+
+        if (plato.cant > 0) {
+          return plato;
+        }
+      });
+    } else {
+      if (accion === "sumar") {
+        let objPlato = {
+          plato_id: id,
+          cant: 1,
+          precio: precio,
+        };
+        pedidoMesaActual.platos.push(objPlato);
+      }
+    }
+
+    console.log(global_pedidos);
   } else {
-    // significa que la mesa actual iniciará su primer plato
+    // significa que la mesa actual iniciará su primer plato y primer pedido
     if (accion === "sumar") {
       let objPedido = {
         mesa_id: global_mesa_id,
