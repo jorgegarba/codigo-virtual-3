@@ -5,18 +5,60 @@ let cartaCategorias = document.getElementById("carta__categorias");
 let cartaPlatos = document.getElementById("carta__platos");
 let categoria_id = 0;
 let global_mesa_id = 0;
-
+let global_pedidos = [];
+/**
+ * objPedido
+ * {
+ *  mesa_id:5,
+ *  platos:[
+ *    {
+ *      plato_id:1,
+ *      cant: 3,
+ *      precio: 75.00
+ *    },
+ *    {
+ *      plato_id:5,
+ *      cant: 1,
+ *      precio: 10.00
+ *    }
+ *  ]
+ * }
+ */
 /**
  * Funcion que agrega o resta una unidad al pedido de la mesa actual
  * Dado el identificador del plato
  * @param {*} accion "sumar|restar"
  * @param {*} id "id del plato a modificar"
+ * @param {*} precio "precio unitario del plato"
  */
-const sumarRestarPlato = (accion, id) => {
+const sumarRestarPlato = (accion, id, precio) => {
   if (global_mesa_id === 0) {
     return;
   }
-  //TODO: -----
+  // Encontrar el pedido de la mesa global seleccionada e el arreglo global de pedidos
+  let pedidoMesaActual = global_pedidos.find(
+    (pedido) => pedido.mesa_id === global_mesa_id
+  );
+
+  if (pedidoMesaActual) {
+    // significa que la mesa actual seleccionada, ya tenia un pedido iniciado
+  } else {
+    // significa que la mesa actual iniciará su primer plato
+    if (accion === "sumar") {
+      let objPedido = {
+        mesa_id: global_mesa_id,
+        platos: [
+          {
+            plato_id: id,
+            cant: 1,
+            precio: precio,
+          },
+        ],
+      };
+      global_pedidos.push(objPedido);
+    }
+    console.log(global_pedidos);
+  }
 };
 
 const dibujarMesas = (mesas) => {
@@ -72,14 +114,14 @@ const dibujarPlatosPorCategoria = (platos, id) => {
       btnSumar.classList.add("btn", "btn-outline-primary", "btn-sumar");
       btnSumar.innerText = "+1";
       btnSumar.onclick = () => {
-        sumarRestarPlato("sumar", plato.plato_id);
+        sumarRestarPlato("sumar", plato.plato_id, plato.plato_pre);
       };
 
       const btnRestar = document.createElement("button");
       btnRestar.classList.add("btn", "btn-outline-primary", "btn-restar");
       btnRestar.innerText = "-1";
       btnRestar.onclick = () => {
-        sumarRestarPlato("restar", plato.plato_id);
+        sumarRestarPlato("restar", plato.plato_id, plato.plato_pre);
       };
 
       btnContenedor.appendChild(btnRestar);
