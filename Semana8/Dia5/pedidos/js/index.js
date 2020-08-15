@@ -3,6 +3,8 @@ let mesasLista = document.getElementById("mesas__lista");
 let cargandoMesas = document.getElementById("cargandoMesas");
 let cartaCategorias = document.getElementById("carta__categorias");
 let cartaPlatos = document.getElementById("carta__platos");
+let comanda = document.getElementById("comanda");
+
 let categoria_id = 0;
 let global_mesa_id = 0;
 let global_pedidos = [];
@@ -91,6 +93,39 @@ const sumarRestarPlato = (accion, id, precio) => {
     }
     console.log(global_pedidos);
   }
+  dibujarComanda();
+};
+
+const dibujarComanda = () => {
+  comanda.innerHTML = "";
+  comanda.innerHTML = `<h4 class="comanda__mesa">${global_mesa_id}</h4>
+  <p class="comanda__usuario">Carlos Jimenez</p>
+  <hr />`;
+  let ul = document.createElement("ul");
+  ul.classList.add("comanda__lista");
+  // obtniendo el objeto de tipo pedido de la mesa actual seleccionada
+  let objPedidoActual = global_pedidos.find(
+    (pedido) => pedido.mesa_id == global_mesa_id
+  );
+
+  if (objPedidoActual) {
+    objPedidoActual.platos.forEach((plato) => {
+      const li = document.createElement("li");
+      li.classList.add("commanda__item");
+      li.innerHTML = `<p class="comanda__nombre">
+                      <span><strong>${plato.plato_id}</strong></span>
+                      <span>Precio: S/ ${plato.precio / plato.cant}</span>
+                    </p>
+                    <p class="comanda__cantidad">${plato.cant}</p>
+                    <p class="comanda__precio">
+                      <strong>S/ ${plato.precio}</strong>
+                    </p>`;
+      ul.appendChild(li);
+    });
+  } else {
+    ul.innerText = "Mesa libre";
+  }
+  comanda.appendChild(ul);
 };
 
 const dibujarMesas = (mesas) => {
@@ -116,6 +151,7 @@ const dibujarMesas = (mesas) => {
       });
       global_mesa_id = mesa.mesa_id;
       mesaLi.classList.add("active");
+      dibujarComanda();
     };
     fragment.appendChild(mesaLi);
   });
