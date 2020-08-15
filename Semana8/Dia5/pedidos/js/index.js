@@ -2,6 +2,8 @@ import { getResourceAll } from "./servicios.js";
 let mesasLista = document.getElementById("mesas__lista");
 let cargandoMesas = document.getElementById("cargandoMesas");
 let cartaCategorias = document.getElementById("carta__categorias");
+let cartaPlatos = document.getElementById("carta__platos");
+let categoria_id = 0;
 
 const dibujarMesas = (mesas) => {
   /**
@@ -19,7 +21,29 @@ const dibujarMesas = (mesas) => {
     fragment.appendChild(mesaLi);
   });
   mesasLista.appendChild(fragment);
-  cargandoMesas.setAttribute("hidden", "hidden");
+  mesasLista.removeAttribute("hidden");
+  cargandoMesas.setAttribute("hidden", true);
+};
+
+const dibujarPlatosPorCategoria = (platos, id) => {
+  cartaPlatos.innerHTML = "";
+  const fragment = new DocumentFragment();
+  platos.forEach((plato) => {
+    if (plato.categoria_id == id) {
+      const card = document.createElement("div");
+      card.classList.add("carta__plato");
+      card.innerHTML = `
+          <img
+            src="${plato.plato_img}"
+            alt="imagen de ${plato.plato_nom}"
+          />
+          <h4 class="carta__titulo">${plato.plato_nom}</h4>
+          <span class="carta__precio">S/ ${plato.plato_pre.toFixed(2)}</span>
+        `;
+      fragment.appendChild(card);
+    }
+  });
+  cartaPlatos.appendChild(fragment);
 };
 
 const dibujarCategorias = (categorias) => {
@@ -28,9 +52,27 @@ const dibujarCategorias = (categorias) => {
     const button = document.createElement("button");
     button.classList.add("btn", "btn-outline-primary");
     button.innerText = cat.categoria_nom;
+    button.onclick = () => {
+      // botones es una colección de botones, pero no necesariamente un arreglo
+      // una colección no es un arreglo de elementos
+      let botones = document.querySelectorAll(".carta__categorias button");
+      // Array.from(botones) convierte en un arreglo genuino a una colección de objetos
+      let botonesArreglo = Array.from(botones);
+      botonesArreglo.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      button.classList.add("active");
+      getAllPlatos(cat.categoria_id);
+    };
     fragment.appendChild(button);
   });
   cartaCategorias.appendChild(fragment);
+};
+
+const getAllPlatos = (id) => {
+  getResourceAll("platos").then((platos) => {
+    dibujarPlatosPorCategoria(platos, id);
+  });
 };
 
 const getAllMesas = () => {
