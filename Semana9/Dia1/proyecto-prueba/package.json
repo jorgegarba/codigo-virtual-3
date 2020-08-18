@@ -1,0 +1,14 @@
+{
+  "name": "proyecto-prueba",
+  "version": "1.0.0",
+  "description": "Proyecto de prueba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jorge Garnica Blanco",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.2"
+  }
+}
