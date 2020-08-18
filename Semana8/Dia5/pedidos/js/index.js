@@ -1,4 +1,4 @@
-import { getResourceAll } from "./servicios.js";
+import { getResourceAll, postPedidos } from "./servicios.js";
 let mesasLista = document.getElementById("mesas__lista");
 let cargandoMesas = document.getElementById("cargandoMesas");
 let cartaCategorias = document.getElementById("carta__categorias");
@@ -32,8 +32,9 @@ let global_pedidos = [];
  * @param {*} accion "sumar|restar"
  * @param {*} id "id del plato a modificar"
  * @param {*} precio "precio unitario del plato"
+ * @param {*} nombre "nombre del plato"
  */
-const sumarRestarPlato = (accion, id, precio) => {
+const sumarRestarPlato = (accion, id, precio, nombre) => {
   if (global_mesa_id === 0) {
     return;
   }
@@ -70,6 +71,7 @@ const sumarRestarPlato = (accion, id, precio) => {
           plato_id: id,
           cant: 1,
           precio: precio,
+          nombre: nombre,
         };
         pedidoMesaActual.platos.push(objPlato);
       }
@@ -86,6 +88,7 @@ const sumarRestarPlato = (accion, id, precio) => {
             plato_id: id,
             cant: 1,
             precio: precio,
+            nombre: nombre,
           },
         ],
       };
@@ -96,11 +99,34 @@ const sumarRestarPlato = (accion, id, precio) => {
   dibujarComanda();
 };
 
+const pagar = async () => {
+  const pedidoMesaActual = global_pedidos.find(
+    (objPedido) => objPedido.mesa_id === global_mesa_id
+  );
+  let respuesta = await postPedidos(pedidoMesaActual);
+  if (respuesta?.id) {
+    Swal.fire({
+      title: "Hecho!",
+      icon: "success",
+      text: "Pedido pagado correctamente",
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    // borrar el pedido del arreglo global de pedidos
+    global_pedidos = global_pedidos.filter(
+      (objPedido) => objPedido.mesa_id !== global_mesa_id
+    );
+    dibujarComanda();
+  }
+};
+
 const dibujarComanda = () => {
   comanda.innerHTML = "";
   comanda.innerHTML = `<h4 class="comanda__mesa">${global_mesa_id}</h4>
   <p class="comanda__usuario">Carlos Jimenez</p>
   <hr />`;
+
   let ul = document.createElement("ul");
   ul.classList.add("comanda__lista");
   // obtniendo el objeto de tipo pedido de la mesa actual seleccionada
@@ -108,24 +134,54 @@ const dibujarComanda = () => {
     (pedido) => pedido.mesa_id == global_mesa_id
   );
 
-  if (objPedidoActual) {
+  /**
+   * Verificar si la mesa seleccionada global actual
+   * tiene platos en su pedido, porque podría tener un arreglo de 0 platos
+   */
+  /**
+   * objPedidoActual? => significa que si el objeto no tiene la propiedad
+   * 'platos', JAVASCRIPT no va a mandar un error por tener el identificador ?
+   * y, si no tiene el atributo "platos" será considerado como un else
+   * Sin embargo, si tiene el atributo "platos", obtendrá el tamaño del arreglo y
+   * procederá con la validación.
+   */
+  if (objPedidoActual?.platos.length > 0) {
     objPedidoActual.platos.forEach((plato) => {
       const li = document.createElement("li");
-      li.classList.add("commanda__item");
+      li.classList.add("comanda__item");
       li.innerHTML = `<p class="comanda__nombre">
-                      <span><strong>${plato.plato_id}</strong></span>
-                      <span>Precio: S/ ${plato.precio / plato.cant}</span>
-                    </p>
-                    <p class="comanda__cantidad">${plato.cant}</p>
-                    <p class="comanda__precio">
-                      <strong>S/ ${plato.precio}</strong>
-                    </p>`;
+                        <span><strong>${plato.nombre}</strong></span>
+                        <span>Precio: S/ ${plato.precio / plato.cant}</span>
+                      </p>
+                      <p class="comanda__cantidad">${plato.cant}</p>
+                      <p class="comanda__precio">
+                        <strong>S/ ${plato.precio}</strong>
+                      </p>`;
       ul.appendChild(li);
     });
+    comanda.appendChild(ul);
+    const btnPagar = document.createElement("button");
+    btnPagar.classList.add("btn", "btn-success");
+    btnPagar.innerText = "PAGAR";
+    btnPagar.onclick = () => {
+      Swal.fire({
+        title: "¿PAGAR?",
+        text: "Se registrarán los cambios en la base de datos",
+        icon: "info",
+        confirmButtonText: "Pagar",
+        showCancelButton: true,
+        allowOutsideClick: false,
+      }).then((result) => {
+        if (result.value) {
+          pagar();
+        }
+      });
+    };
+    comanda.appendChild(btnPagar);
   } else {
     ul.innerText = "Mesa libre";
+    comanda.appendChild(ul);
   }
-  comanda.appendChild(ul);
 };
 
 const dibujarMesas = (mesas) => {
@@ -182,14 +238,24 @@ const dibujarPlatosPorCategoria = (platos, id) => {
       btnSumar.classList.add("btn", "btn-outline-primary", "btn-sumar");
       btnSumar.innerText = "+1";
       btnSumar.onclick = () => {
-        sumarRestarPlato("sumar", plato.plato_id, plato.plato_pre);
+        sumarRestarPlato(
+          "sumar",
+          plato.plato_id,
+          plato.plato_pre,
+          plato.plato_nom
+        );
       };
 
       const btnRestar = document.createElement("button");
       btnRestar.classList.add("btn", "btn-outline-primary", "btn-restar");
       btnRestar.innerText = "-1";
       btnRestar.onclick = () => {
-        sumarRestarPlato("restar", plato.plato_id, plato.plato_pre);
+        sumarRestarPlato(
+          "restar",
+          plato.plato_id,
+          plato.plato_pre,
+          plato.plato_nom
+        );
       };
 
       btnContenedor.appendChild(btnRestar);
