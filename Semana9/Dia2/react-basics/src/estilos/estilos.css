@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.table-header {
+  color: white;
+  background-color: #444;
+}
+.row-active {
+  background-color: #888;
+  color: white;
+}
