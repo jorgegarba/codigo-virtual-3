@@ -1,9 +1,16 @@
 import React from "react";
 
 const Persona = (props) => {
-  console.log(props.personaId);
+  
+  const clickFila = (e) => {
+    props.setPersonaId(props.persona.id);
+  };
+
   return (
-    <tr className={props.personaId === props.persona.id ? "row-active" : ""}>
+    <tr
+      className={props.personaId === props.persona.id ? "row-active" : ""}
+      onClick={clickFila}
+    >
       <td>{props.persona.id}</td>
       <td>{props.persona.first_name}</td>
       <td>{props.persona.last_name}</td>

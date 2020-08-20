@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Persona from "./Persona";
 const Personas = (props) => {
-  const [personaId, setPersonaId] = useState(9);
+
+  const [personaId, setPersonaId] = useState(12);
 
   return (
     <>
