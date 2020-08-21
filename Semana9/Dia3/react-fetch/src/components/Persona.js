@@ -1,11 +1,10 @@
 import React from "react";
 
 const Persona = ({ objPersona, setPersonaSeleccionada }) => {
-
   const seleccionarPersona = () => {
     setPersonaSeleccionada(objPersona);
   };
-  
+
   return (
     <div className="col-md-3 mb-3">
       <div className="card shadow">
@@ -20,12 +19,14 @@ const Persona = ({ objPersona, setPersonaSeleccionada }) => {
           <p>
             <strong>Email:</strong> {objPersona.email}
           </p>
-          <button
-            className="btn btn-outline-primary btn-block"
-            onClick={seleccionarPersona}
-          >
-            Ver mas
-          </button>
+          {setPersonaSeleccionada ? (
+            <button
+              className="btn btn-outline-primary btn-block"
+              onClick={seleccionarPersona}
+            >
+              Ver mas
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
