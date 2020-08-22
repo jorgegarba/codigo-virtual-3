@@ -1,6 +1,7 @@
 import React from "react";
 import Formulario from "./components/Formulario";
 import FormularioEz from "./components/FormularioEz";
+import FormCrearPlato from "./components/FormCrearPlato";
 
 const App = () => {
   return (
@@ -8,7 +9,7 @@ const App = () => {
       <main className="container">
         <div className="row">
           <div className="col">
-            <Formulario />
+            <FormCrearPlato />
           </div>
         </div>
       </main>
