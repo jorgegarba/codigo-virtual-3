@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { getCategorias, postPlato } from "../services/services";
+import Swal from "sweetalert2";
+
+const initialState = {
+  plato_nom: "",
+  plato_img: "",
+  plato_pre: 0,
+  categoria_id: "",
+};
 
 const FormCrearPlato = () => {
   const [categorias, setCategorias] = useState([]);
-  const [form, setForm] = useState({
-    plato_nom: "",
-    plato_img: "",
-    plato_pre: 0,
-    categoria_id: "",
-  });
+  const [form, setForm] = useState(initialState);
 
   const { plato_img, plato_nom, plato_pre, categoria_id } = form;
 
@@ -30,7 +33,16 @@ const FormCrearPlato = () => {
     e.preventDefault();
     // validar el formulario
     postPlato(form).then((respuesta) => {
-      console.log(respuesta);
+      if (respuesta.status === 201) {
+        setForm(initialState);
+        Swal.fire({
+          icon: "success",
+          timer: 1500,
+          title: "Creado!",
+          text: "Registro creado correctamente",
+          showConfirmButton: false,
+        });
+      }
     });
   };
 
