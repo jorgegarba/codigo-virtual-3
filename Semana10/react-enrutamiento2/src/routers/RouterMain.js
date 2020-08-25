@@ -7,7 +7,6 @@ import RouterGuest from "./RouterGuest";
 const RouterMain = () => {
   return (
     <Router>
-      contenido estatico
       <Switch>
         <Route path={"/auth"} component={RouterAuth} />
         <Route path={"/admin"} component={RouterAdmin} />
