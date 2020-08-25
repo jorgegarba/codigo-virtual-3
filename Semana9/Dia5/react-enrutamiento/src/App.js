@@ -25,9 +25,9 @@ const App = () => {
       </header>
       <hr />
       <Switch>
-        <Route exact path={"/"} component={Home} />
         <Route exact path={"/pos"} component={Pos} />
         <Route exact path={"/platos"} component={Platos} />
+        <Route exact path={"/"} component={Home} />
         <Route component={NotFound} />
       </Switch>
     </Router>
