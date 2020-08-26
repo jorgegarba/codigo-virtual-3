@@ -4,7 +4,7 @@ import { deleteMesaById } from "../../../services/mesas";
 import Swal from "sweetalert2";
 import Cargando from "./Cargando";
 
-const MesasTabla = ({ mesas, loading, obtenerMesas }) => {
+const MesasTabla = ({ mesas, loading, obtenerMesas, setMesa, setModo }) => {
   const eliminarMesaById = (mesa_id) => {
     Swal.fire({
       icon: "error",
@@ -37,7 +37,10 @@ const MesasTabla = ({ mesas, loading, obtenerMesas }) => {
     });
   };
 
-  const editarMesaById = () => {};
+  const editarMesaById = (objMesa) => {
+    setModo("editar");
+    setMesa(objMesa);
+  };
 
   const datatable = {
     columns: [
@@ -60,7 +63,14 @@ const MesasTabla = ({ mesas, loading, obtenerMesas }) => {
             >
               Eliminar
             </button>
-            <button className="btn btn-warning ml-2">Editar</button>
+            <button
+              className="btn btn-warning ml-2"
+              onClick={() => {
+                editarMesaById(objMesa);
+              }}
+            >
+              Editar
+            </button>
           </>
         ),
       };

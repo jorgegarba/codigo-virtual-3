@@ -6,6 +6,8 @@ import { getMesas } from "../../../services/mesas";
 const AdminMesas = () => {
   const [mesas, setMesas] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modo, setModo] = useState("crear");
+  const [mesa, setMesa] = useState({});
 
   const obtenerMesas = () => {
     getMesas().then((rpta) => {
@@ -25,8 +27,17 @@ const AdminMesas = () => {
           <h1 className="text-center">Mantenimiento de Mesas</h1>
         </div>
       </div>
-      <MesasFormulario obtenerMesas={obtenerMesas} />
-      <MesasTabla mesas={mesas} loading={loading} obtenerMesas={obtenerMesas} />
+      <MesasFormulario 
+              obtenerMesas={obtenerMesas}
+              modo={modo}
+              mesa={mesa}/>
+      <MesasTabla
+        mesas={mesas}
+        loading={loading}
+        obtenerMesas={obtenerMesas}
+        setMesa={setMesa}
+        setModo={setModo}
+      />
     </>
   );
 };

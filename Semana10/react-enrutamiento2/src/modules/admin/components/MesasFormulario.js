@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { postMesa } from "../../../services/mesas";
 import Swal from "sweetalert2";
 
-const MesasFormulario = ({ obtenerMesas }) => {
+const MesasFormulario = ({ obtenerMesas, modo, mesa }) => {
   const [form, setForm] = useState({
     mesa_nro: "",
     mesa_cap: 0,
   });
+
+  useEffect(() => {
+    if (modo === "editar") {
+      setForm(mesa);
+    }
+    // si la variable mesa cambia su valor
+    // la función useEffect, se vuelve a ejecutar
+  }, [mesa]);
 
   const handleChange = (e) => {
     setForm({
@@ -65,7 +73,7 @@ const MesasFormulario = ({ obtenerMesas }) => {
               </div>
               <div className="form-group text-center">
                 <button className="btn btn-primary" type="submit">
-                  Crear
+                  {modo === "crear" ? <>Crear</> : <>Editar</>}
                 </button>
                 <button className="btn btn-secondary ml-3" type="button">
                   Cancelar
