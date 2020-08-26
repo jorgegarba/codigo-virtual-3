@@ -5,3 +5,11 @@ export const getMesas = async () => {
   const json = await response.json();
   return json;
 };
+
+export const deleteMesaById = async (mesa_id) => {
+  const response = await fetch(`${URL_BACKEND}/mesas/${mesa_id}`, {
+    method: "DELETE",
+  });
+  const json = await response.json();
+  return json;
+};

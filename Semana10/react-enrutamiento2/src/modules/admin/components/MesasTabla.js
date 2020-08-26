@@ -1,19 +1,51 @@
 import React, { useState, useEffect } from "react";
 import { MDBDataTableV5 } from "mdbreact";
-import { getMesas } from "../../../services/mesas";
+import { getMesas, deleteMesaById } from "../../../services/mesas";
+import Swal from "sweetalert2";
 
 const MesasTabla = () => {
   const [mesas, setMesas] = useState([]);
 
-  useEffect(() => {
+  const obtenerMesas = () => {
     getMesas().then((rpta) => {
       setMesas(rpta);
     });
+  };
+
+  useEffect(() => {
+    obtenerMesas();
   }, []);
 
   const eliminarMesaById = (mesa_id) => {
-    console.log(mesa_id);
-    console.log(`Eliminando ${mesa_id}`);
+    Swal.fire({
+      icon: "error",
+      text: "Los cambios son irreversibles",
+      title: "¿Seguro que desea eliminar el registro?",
+      showCancelButton: true,
+      confirmButtonText: "ELIMINAR",
+      confirmButtonColor: "#de0a0a",
+    }).then((rpta) => {
+      if (rpta.value) {
+        //sí, eliminar
+        deleteMesaById(mesa_id).then((rpta) => {
+          if (rpta.mesa_id) {
+            obtenerMesas();
+            Swal.fire({
+              icon: "success",
+              title: "Eliminado correctamente",
+              timer: 1500,
+              position: "top-end",
+              showConfirmButton: false,
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Hubieron errores en el servidor",
+            });
+          }
+        });
+      }
+    });
   };
 
   const editarMesaById = () => {};
@@ -53,6 +85,8 @@ const MesasTabla = () => {
           <div className="card-body">
             <MDBDataTableV5
               hover
+              striped
+              bordered
               entriesOptions={[5, 20, 25]}
               entries={5}
               pagesAmount={4}
