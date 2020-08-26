@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { MDBDataTableV5 } from "mdbreact";
 import { getMesas, deleteMesaById } from "../../../services/mesas";
 import Swal from "sweetalert2";
+import Cargando from "./Cargando";
 
 const MesasTabla = () => {
   const [mesas, setMesas] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const obtenerMesas = () => {
     getMesas().then((rpta) => {
       setMesas(rpta);
+      setLoading(false);
     });
   };
 
@@ -83,15 +86,19 @@ const MesasTabla = () => {
       <div className="col">
         <div className="card shadow">
           <div className="card-body">
-            <MDBDataTableV5
-              hover
-              striped
-              bordered
-              entriesOptions={[5, 20, 25]}
-              entries={5}
-              pagesAmount={4}
-              data={datatable}
-            />
+            {loading ? (
+              <Cargando texto="Cargando los datos" />
+            ) : (
+              <MDBDataTableV5
+                hover
+                striped
+                bordered
+                entriesOptions={[5, 20, 25]}
+                entries={5}
+                pagesAmount={4}
+                data={datatable}
+              />
+            )}
           </div>
         </div>
       </div>
