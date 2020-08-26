@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MDBDataTableV5 } from "mdbreact";
-import { getMesas, deleteMesaById } from "../../../services/mesas";
+import { deleteMesaById } from "../../../services/mesas";
 import Swal from "sweetalert2";
 import Cargando from "./Cargando";
 
-const MesasTabla = () => {
-  const [mesas, setMesas] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const obtenerMesas = () => {
-    getMesas().then((rpta) => {
-      setMesas(rpta);
-      setLoading(false);
-    });
-  };
-
-  useEffect(() => {
-    obtenerMesas();
-  }, []);
-
+const MesasTabla = ({ mesas, loading, obtenerMesas }) => {
   const eliminarMesaById = (mesa_id) => {
     Swal.fire({
       icon: "error",
@@ -90,6 +76,8 @@ const MesasTabla = () => {
               <Cargando texto="Cargando los datos" />
             ) : (
               <MDBDataTableV5
+                searchLabel={"Buscar"}
+                infoLabel={["Mostrando", "al", "de", "registros"]}
                 hover
                 striped
                 bordered
