@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link, NavLink } from "react-router-dom";
 const AdminHeader = () => {
   return (
     <header>
@@ -18,35 +18,55 @@ const AdminHeader = () => {
         ></button>
         <div className="collapse navbar-collapse" id="collapsibleNavId">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item active">
-              <a className="nav-link" href="!#">
-                Home <span className="sr-only">(current)</span>
-              </a>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to={"/admin/dashboard"}
+                className="nav-link"
+                activeClassName={"active"}
+              >
+                Dashboard
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="!#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="!#"
-                id="dropdownId"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
+              <NavLink
+                exact
+                to={"/admin/mesas"}
+                className="nav-link"
+                activeClassName={"active"}
               >
-                Dropdown
-              </a>
-              <div className="dropdown-menu" aria-labelledby="dropdownId">
-                <a className="dropdown-item" href="!#">
-                  Action 1
-                </a>
-                <a className="dropdown-item" href="!#">
-                  Action 2
-                </a>
-              </div>
+                Mesas
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to={"/admin/categorias"}
+                className="nav-link"
+                activeClassName={"active"}
+              >
+                Categorias
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to={"/admin/platos"}
+                className="nav-link"
+                activeClassName={"active"}
+              >
+                Platos
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to={"/admin/pedidos"}
+                className="nav-link"
+                activeClassName={"active"}
+              >
+                Pedidos
+              </NavLink>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
