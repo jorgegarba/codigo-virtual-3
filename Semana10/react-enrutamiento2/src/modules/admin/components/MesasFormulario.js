@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { postMesa } from "../../../services/mesas";
+import { postMesa, putMesaById } from "../../../services/mesas";
 import Swal from "sweetalert2";
 
-const MesasFormulario = ({ obtenerMesas, modo, mesa }) => {
+const MesasFormulario = ({ obtenerMesas, modo, mesa, setModo, setMesa }) => {
   const [form, setForm] = useState({
     mesa_nro: "",
     mesa_cap: 0,
@@ -12,8 +12,6 @@ const MesasFormulario = ({ obtenerMesas, modo, mesa }) => {
     if (modo === "editar") {
       setForm(mesa);
     }
-    // si la variable mesa cambia su valor
-    // la función useEffect, se vuelve a ejecutar
   }, [mesa]);
 
   const handleChange = (e) => {
@@ -27,19 +25,42 @@ const MesasFormulario = ({ obtenerMesas, modo, mesa }) => {
     e.preventDefault();
     if (form.mesa_cap > 0 && form.mesa_nro.trim() !== "") {
       // el form está validado
-      postMesa(form).then((rpta) => {
-        if (rpta.mesa_id) {
-          obtenerMesas();
-          Swal.fire({
-            title: "Hecho!",
-            icon: "success",
-            text: "Registro creado exitosamente",
-            position: "top-end",
-            timer: 1500,
-            showConfirmButton: false,
-          });
-        }
-      });
+      if (modo === "crear") {
+        postMesa(form).then((rpta) => {
+          if (rpta.mesa_id) {
+            setForm({
+              mesa_nro: "",
+              mesa_cap: 0,
+            });
+            obtenerMesas();
+            Swal.fire({
+              title: "Hecho!",
+              icon: "success",
+              text: "Registro creado exitosamente",
+              position: "top-end",
+              timer: 1500,
+              showConfirmButton: false,
+            });
+          }
+        });
+      } else {
+        //editar
+        putMesaById(form).then((rpta) => {
+          if (rpta.mesa_id) {
+            setForm({ mesa_nro: "", mesa_cap: 0 });
+            obtenerMesas();
+            setModo("crear");
+            setMesa({});
+            Swal.fire({
+              icon: "success",
+              title: "Registro correctamente actualizado",
+              timer: 1500,
+              position: "top-end",
+              showConfirmButton: false,
+            });
+          }
+        });
+      }
     }
   };
 
@@ -73,7 +94,7 @@ const MesasFormulario = ({ obtenerMesas, modo, mesa }) => {
               </div>
               <div className="form-group text-center">
                 <button className="btn btn-primary" type="submit">
-                  {modo === "crear" ? <>Crear</> : <>Editar</>}
+                  {modo === "crear" ? <>Crear</> : <>Guardar Cambios</>}
                 </button>
                 <button className="btn btn-secondary ml-3" type="button">
                   Cancelar

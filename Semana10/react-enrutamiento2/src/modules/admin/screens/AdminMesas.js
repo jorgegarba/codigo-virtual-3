@@ -27,10 +27,13 @@ const AdminMesas = () => {
           <h1 className="text-center">Mantenimiento de Mesas</h1>
         </div>
       </div>
-      <MesasFormulario 
-              obtenerMesas={obtenerMesas}
-              modo={modo}
-              mesa={mesa}/>
+      <MesasFormulario
+        obtenerMesas={obtenerMesas}
+        modo={modo}
+        mesa={mesa}
+        setModo={setModo}
+        setMesa={setMesa}
+      />
       <MesasTabla
         mesas={mesas}
         loading={loading}

@@ -25,3 +25,15 @@ export const postMesa = async (objMesa) => {
   const json = await response.json();
   return json;
 };
+
+export const putMesaById = async (objMesa) => {
+  const response = await fetch(`${URL_BACKEND}/mesas/${objMesa.mesa_id}`, {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(objMesa),
+  });
+  const json = await response.json();
+  return json;
+};
