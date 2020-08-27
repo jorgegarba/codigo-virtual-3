@@ -1,6 +1,6 @@
 import React from "react";
 import PedidosTabla from "./../components/PedidosTabla";
-const AdminPedidos = () => {
+const AdminPedidos = (props) => {
   return (
     <>
       <div className="row mt-4">
@@ -8,7 +8,7 @@ const AdminPedidos = () => {
           <h1 className="text-center">Pedidos</h1>
         </div>
       </div>
-      <PedidosTabla />
+      <PedidosTabla history={props.history} />
     </>
   );
 };
