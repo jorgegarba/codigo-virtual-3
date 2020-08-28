@@ -5,3 +5,9 @@ export const getPedidos = async () => {
   const json = response.json();
   return json;
 };
+
+export const getPedidosById = async (pedido_id) => {
+  const response = await fetch(`${URL_BACKEND_HEROKU}/pedido/${pedido_id}`);
+  const json = response.json();
+  return json;
+};

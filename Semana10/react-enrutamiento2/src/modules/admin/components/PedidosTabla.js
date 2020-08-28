@@ -53,7 +53,13 @@ const PedidosTabla = ({ history }) => {
       <div className="col">
         <div className="card shadow">
           <div className="card-body">
-            <MDBDataTableV5 hover striped bordered data={datatable} />
+            <MDBDataTableV5
+              responsive
+              hover
+              striped
+              bordered
+              data={datatable}
+            />
           </div>
         </div>
       </div>
