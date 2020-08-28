@@ -9,10 +9,10 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <img src="./img/logo.svg" alt="" />
+        <img src="./assets/img/logo.svg" alt="" />
       </div>
       <div class="header__buscador">
-        <img src="./img/search.svg" alt="" />
+        <img src="./assets/img/search.svg" alt="" />
         <input
           type="text"
           class="header__input"
@@ -24,23 +24,23 @@
         <span>Jorge Garnica</span>
       </div>
     </header>
-    <main class="container">
+    <main class="pos-container">
       <nav class="menu">
         <ul class="menu__lista">
           <li>
-            <img src="./img/plato_blanco.svg" alt="" />
+            <img src="./assets/img/plato_blanco.svg" alt="" />
             <span>Bebidas</span>
           </li>
           <li>
-            <img src="./img/plato_blanco.svg" alt="" />
+            <img src="./assets/img/plato_blanco.svg" alt="" />
             <span>Bebidas</span>
           </li>
           <li>
-            <img src="./img/plato_blanco.svg" alt="" />
+            <img src="./assets/img/plato_blanco.svg" alt="" />
             <span>Bebidas</span>
           </li>
           <li>
-            <img src="./img/plato_blanco.svg" alt="" />
+            <img src="./assets/img/plato_blanco.svg" alt="" />
             <span>Bebidas</span>
           </li>
         </ul>
@@ -56,7 +56,7 @@
               <span class="mesas__titulo">Mesa</span>
               <span class="mesas__numero">02</span>
             </li>
-            <li class="mesas__mesa active">
+            <li class="mesas__mesa activo">
               <span class="mesas__titulo">Mesa</span>
               <span class="mesas__numero">02</span>
             </li>
@@ -86,10 +86,12 @@
         <div class="pedido">
           <div class="carta">
             <div class="carta__categorias">
-              <button class="btn btn-outline-primary active">Comida</button>
-              <button class="btn btn-outline-primary">Bebida</button>
-              <button class="btn btn-outline-primary">Jugos</button>
-              <button class="btn btn-outline-primary">Postres</button>
+              <button class="boton boton-outline-primary activo">
+                Comida
+              </button>
+              <button class="boton boton-outline-primary">Bebida</button>
+              <button class="boton boton-outline-primary">Jugos</button>
+              <button class="boton boton-outline-primary">Postres</button>
             </div>
             <div class="carta__platos">
               <div class="carta__plato">
@@ -100,10 +102,10 @@
                 <h4 class="carta__titulo">Arroz Chaufa de Pollo</h4>
                 <span class="carta__precio">S/ 52.00</span>
                 <div class="carta__botones">
-                  <button class="btn btn-outline-primary btn-restar">
+                  <button class="boton boton-outline-primary boton-restar">
                     -1
                   </button>
-                  <button class="btn btn-outline-primary btn-sumar">
+                  <button class="boton boton-outline-primary boton-sumar">
                     +1
                   </button>
                 </div>
@@ -116,10 +118,10 @@
                 <h4 class="carta__titulo">Cebiche</h4>
                 <span class="carta__precio">S/ 52.00</span>
                 <div class="carta__botones">
-                  <button class="btn btn-outline-primary btn-restar">
+                  <button class="boton boton-outline-primary boton-restar">
                     -1
                   </button>
-                  <button class="btn btn-outline-primary btn-sumar">
+                  <button class="boton boton-outline-primary boton-sumar">
                     +1
                   </button>
                 </div>
@@ -132,10 +134,10 @@
                 <h4 class="carta__titulo">Pulpo al Olivo</h4>
                 <span class="carta__precio">S/ 52.00</span>
                 <div class="carta__botones">
-                  <button class="btn btn-outline-primary btn-restar">
+                  <button class="boton boton-outline-primary boton-restar">
                     -1
                   </button>
-                  <button class="btn btn-outline-primary btn-sumar">
+                  <button class="boton boton-outline-primary boton-sumar">
                     +1
                   </button>
                 </div>
@@ -148,10 +150,10 @@
                 <h4 class="carta__titulo">Arroz Chaufa de Pollo</h4>
                 <span class="carta__precio">S/ 52.00</span>
                 <div class="carta__botones">
-                  <button class="btn btn-outline-primary btn-restar">
+                  <button class="boton boton-outline-primary boton-restar">
                     -1
                   </button>
-                  <button class="btn btn-outline-primary btn-sumar">
+                  <button class="boton boton-outline-primary boton-sumar">
                     +1
                   </button>
                 </div>
@@ -164,10 +166,10 @@
                 <h4 class="carta__titulo">Arroz Chaufa de Pollo</h4>
                 <span class="carta__precio">S/ 52.00</span>
                 <div class="carta__botones">
-                  <button class="btn btn-outline-primary btn-restar">
+                  <button class="boton boton-outline-primary boton-restar">
                     -1
                   </button>
-                  <button class="btn btn-outline-primary btn-sumar">
+                  <button class="boton boton-outline-primary boton-sumar">
                     +1
                   </button>
                 </div>
@@ -180,10 +182,10 @@
                 <h4 class="carta__titulo">Arroz Chaufa de Pollo</h4>
                 <span class="carta__precio">S/ 52.00</span>
                 <div class="carta__botones">
-                  <button class="btn btn-outline-primary btn-restar">
+                  <button class="boton boton-outline-primary boton-restar">
                     -1
                   </button>
-                  <button class="btn btn-outline-primary btn-sumar">
+                  <button class="boton boton-outline-primary boton-sumar">
                     +1
                   </button>
                 </div>
@@ -200,7 +202,9 @@
               <ul class="comanda__lista">
                 <li class="comanda__item">
                   <p class="comanda__nombre">
-                    <span><strong>Arroz Chaufa de Pollo</strong></span>
+                    <span>
+                      <strong>Arroz Chaufa de Pollo</strong>
+                    </span>
                     <span>Precio: S/ 35.00</span>
                   </p>
                   <p class="comanda__cantidad">01</p>
@@ -210,7 +214,9 @@
                 </li>
                 <li class="comanda__item">
                   <p class="comanda__nombre">
-                    <span><strong>Lomo Saltado</strong></span>
+                    <span>
+                      <strong>Lomo Saltado</strong>
+                    </span>
                     <span>Precio: S/ 35.00</span>
                   </p>
                   <p class="comanda__cantidad">01</p>
@@ -220,7 +226,9 @@
                 </li>
                 <li class="comanda__item">
                   <p class="comanda__nombre">
-                    <span><strong>Café expreso</strong></span>
+                    <span>
+                      <strong>Café expreso</strong>
+                    </span>
                     <span>Precio: S/ 5.00</span>
                   </p>
                   <p class="comanda__cantidad">01</p>
@@ -230,7 +238,9 @@
                 </li>
                 <li class="comanda__item">
                   <p class="comanda__nombre">
-                    <span><strong>Porc. Torta Helada</strong></span>
+                    <span>
+                      <strong>Porc. Torta Helada</strong>
+                    </span>
                     <span>Precio: S/ 8.00</span>
                   </p>
                   <p class="comanda__cantidad">01</p>
@@ -239,7 +249,7 @@
                   </p>
                 </li>
               </ul>
-              <button class="btn btn-success btn-block">PAGAR</button>
+              <button class="boton boton-success boton-block">PAGAR</button>
             </div>
           </div>
         </div>
