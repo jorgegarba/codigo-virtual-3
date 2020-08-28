@@ -5,10 +5,10 @@ const Pos = () => {
     <>
       <header className="header">
         <div className="header__logo">
-          <img src="./img/logo.svg" alt="" />
+          <img src="./assets/img/logo.svg" alt="" />
         </div>
         <div className="header__buscador">
-          <img src="./img/search.svg" alt="" />
+          <img src="./assets/img/search.svg" alt="" />
           <input
             type="text"
             className="header__input"
@@ -20,23 +20,23 @@ const Pos = () => {
           <span>Jorge Garnica</span>
         </div>
       </header>
-      <main className="container">
+      <main className="pos-container">
         <nav className="menu">
           <ul className="menu__lista">
             <li>
-              <img src="./img/plato_blanco.svg" alt="" />
+              <img src="./assets/img/plato_blanco.svg" alt="" />
               <span>Bebidas</span>
             </li>
             <li>
-              <img src="./img/plato_blanco.svg" alt="" />
+              <img src="./assets/img/plato_blanco.svg" alt="" />
               <span>Bebidas</span>
             </li>
             <li>
-              <img src="./img/plato_blanco.svg" alt="" />
+              <img src="./assets/img/plato_blanco.svg" alt="" />
               <span>Bebidas</span>
             </li>
             <li>
-              <img src="./img/plato_blanco.svg" alt="" />
+              <img src="./assets/img/plato_blanco.svg" alt="" />
               <span>Bebidas</span>
             </li>
           </ul>
@@ -52,7 +52,7 @@ const Pos = () => {
                 <span className="mesas__titulo">Mesa</span>
                 <span className="mesas__numero">02</span>
               </li>
-              <li className="mesas__mesa active">
+              <li className="mesas__mesa activo">
                 <span className="mesas__titulo">Mesa</span>
                 <span className="mesas__numero">02</span>
               </li>
@@ -82,12 +82,12 @@ const Pos = () => {
           <div className="pedido">
             <div className="carta">
               <div className="carta__categorias">
-                <button className="btn btn-outline-primary active">
+                <button className="boton boton-outline-primary activo">
                   Comida
                 </button>
-                <button className="btn btn-outline-primary">Bebida</button>
-                <button className="btn btn-outline-primary">Jugos</button>
-                <button className="btn btn-outline-primary">Postres</button>
+                <button className="boton boton-outline-primary">Bebida</button>
+                <button className="boton boton-outline-primary">Jugos</button>
+                <button className="boton boton-outline-primary">Postres</button>
               </div>
               <div className="carta__platos">
                 <div className="carta__plato">
@@ -98,10 +98,10 @@ const Pos = () => {
                   <h4 className="carta__titulo">Arroz Chaufa de Pollo</h4>
                   <span className="carta__precio">S/ 52.00</span>
                   <div className="carta__botones">
-                    <button className="btn btn-outline-primary btn-restar">
+                    <button className="boton boton-outline-primary boton-restar">
                       -1
                     </button>
-                    <button className="btn btn-outline-primary btn-sumar">
+                    <button className="boton boton-outline-primary boton-sumar">
                       +1
                     </button>
                   </div>
@@ -114,10 +114,10 @@ const Pos = () => {
                   <h4 className="carta__titulo">Cebiche</h4>
                   <span className="carta__precio">S/ 52.00</span>
                   <div className="carta__botones">
-                    <button className="btn btn-outline-primary btn-restar">
+                    <button className="boton boton-outline-primary boton-restar">
                       -1
                     </button>
-                    <button className="btn btn-outline-primary btn-sumar">
+                    <button className="boton boton-outline-primary boton-sumar">
                       +1
                     </button>
                   </div>
@@ -130,10 +130,10 @@ const Pos = () => {
                   <h4 className="carta__titulo">Pulpo al Olivo</h4>
                   <span className="carta__precio">S/ 52.00</span>
                   <div className="carta__botones">
-                    <button className="btn btn-outline-primary btn-restar">
+                    <button className="boton boton-outline-primary boton-restar">
                       -1
                     </button>
-                    <button className="btn btn-outline-primary btn-sumar">
+                    <button className="boton boton-outline-primary boton-sumar">
                       +1
                     </button>
                   </div>
@@ -146,10 +146,10 @@ const Pos = () => {
                   <h4 className="carta__titulo">Arroz Chaufa de Pollo</h4>
                   <span className="carta__precio">S/ 52.00</span>
                   <div className="carta__botones">
-                    <button className="btn btn-outline-primary btn-restar">
+                    <button className="boton boton-outline-primary boton-restar">
                       -1
                     </button>
-                    <button className="btn btn-outline-primary btn-sumar">
+                    <button className="boton boton-outline-primary boton-sumar">
                       +1
                     </button>
                   </div>
@@ -162,10 +162,10 @@ const Pos = () => {
                   <h4 className="carta__titulo">Arroz Chaufa de Pollo</h4>
                   <span className="carta__precio">S/ 52.00</span>
                   <div className="carta__botones">
-                    <button className="btn btn-outline-primary btn-restar">
+                    <button className="boton boton-outline-primary boton-restar">
                       -1
                     </button>
-                    <button className="btn btn-outline-primary btn-sumar">
+                    <button className="boton boton-outline-primary boton-sumar">
                       +1
                     </button>
                   </div>
@@ -178,10 +178,10 @@ const Pos = () => {
                   <h4 className="carta__titulo">Arroz Chaufa de Pollo</h4>
                   <span className="carta__precio">S/ 52.00</span>
                   <div className="carta__botones">
-                    <button className="btn btn-outline-primary btn-restar">
+                    <button className="boton boton-outline-primary boton-restar">
                       -1
                     </button>
-                    <button className="btn btn-outline-primary btn-sumar">
+                    <button className="boton boton-outline-primary boton-sumar">
                       +1
                     </button>
                   </div>
@@ -245,7 +245,9 @@ const Pos = () => {
                     </p>
                   </li>
                 </ul>
-                <button className="btn btn-success btn-block">PAGAR</button>
+                <button className="boton boton-success boton-block">
+                  PAGAR
+                </button>
               </div>
             </div>
           </div>

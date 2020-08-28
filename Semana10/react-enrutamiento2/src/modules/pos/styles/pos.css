@@ -8,16 +8,14 @@
 ul {
   list-style: none;
   padding: 0;
-}
-
-body {
-  background-color: #030c1c;
-  font-family: "Poppins", sans-serif;
+  margin: 0;
 }
 
 .header {
   display: flex;
   height: 60px;
+  background-color: #030c1c;
+  font-family: "Poppins", sans-serif;
 }
 .header__logo {
   max-width: 80px;
@@ -54,21 +52,23 @@ body {
   border-radius: 50%;
 }
 
-.container {
+.pos-container {
   display: flex;
+  background-color: #030c1c;
+  font-family: "Poppins", sans-serif;
 }
-.container .menu {
+.pos-container .menu {
   width: 80px;
   height: calc(100vh - 60px);
   display: flex;
   padding-top: 50px;
 }
-.container .menu__lista {
+.pos-container .menu__lista {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-.container .menu__lista li {
+.pos-container .menu__lista li {
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -77,33 +77,33 @@ body {
   color: #ddd;
   margin-bottom: 40px;
 }
-.container .menu__lista li img {
+.pos-container .menu__lista li img {
   width: 2.5rem;
 }
-.container .menu__lista li span {
+.pos-container .menu__lista li span {
   margin-top: 5px;
   font-size: 0.8rem;
 }
-.container .menu__lista li:hover {
+.pos-container .menu__lista li:hover {
   color: #ff9c63;
   border-left: 4px solid #ff9c63;
 }
-.container .tabla {
+.pos-container .tabla {
   flex: 1;
   border: 1px solid #5e5e5e;
   display: flex;
   flex-direction: column;
 }
-.container .tabla .mesas {
+.pos-container .tabla .mesas {
   color: #ddd;
   height: 80px;
   display: flex;
 }
-.container .tabla .mesas__lista {
+.pos-container .tabla .mesas__lista {
   display: flex;
   width: 80%;
 }
-.container .tabla .mesas__lista li {
+.pos-container .tabla .mesas__lista li {
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -112,34 +112,34 @@ body {
   flex: 1;
   max-width: 100px;
 }
-.container .tabla .mesas__lista li .mesas__numero {
+.pos-container .tabla .mesas__lista li .mesas__numero {
   font-size: 2rem;
 }
-.container .tabla .mesas__lista li:hover {
+.pos-container .tabla .mesas__lista li:hover {
   background-color: #051633;
 }
-.container .tabla .mesas__lista li.active {
+.pos-container .tabla .mesas__lista li.activo {
   background-color: #051633;
   border-bottom: 4px solid #ff9c63;
 }
-.container .tabla .pedido {
+.pos-container .tabla .pedido {
   padding: 20px;
   flex: 1;
   background-color: #051633;
   display: flex;
 }
-.container .tabla .pedido .carta {
+.pos-container .tabla .pedido .carta {
   flex: 1;
 }
-.container .tabla .pedido .carta__categorias {
+.pos-container .tabla .pedido .carta__categorias {
   height: 60px;
   display: flex;
   align-items: center;
 }
-.container .tabla .pedido .carta__categorias button {
+.pos-container .tabla .pedido .carta__categorias button {
   margin-right: 10px;
 }
-.container .tabla .pedido .carta__botones {
+.pos-container .tabla .pedido .carta__botones {
   width: 100%;
   height: 100%;
   display: flex;
@@ -150,12 +150,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.container .tabla .pedido .carta__platos {
+.pos-container .tabla .pedido .carta__platos {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.container .tabla .pedido .carta__plato {
+.pos-container .tabla .pedido .carta__plato {
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -170,37 +170,37 @@ body {
   height: 200px;
   padding: 10px;
 }
-.container .tabla .pedido .carta__plato img {
+.pos-container .tabla .pedido .carta__plato img {
   max-height: 50%;
   transition: all 0.5s ease;
 }
-.container .tabla .pedido .carta__plato * {
+.pos-container .tabla .pedido .carta__plato * {
   margin-bottom: 5px;
 }
-.container .tabla .pedido .carta__plato:hover {
+.pos-container .tabla .pedido .carta__plato:hover {
   background-color: #ff9c63;
   color: white;
 }
-.container .tabla .pedido .carta__plato:hover img {
+.pos-container .tabla .pedido .carta__plato:hover img {
   margin-bottom: 50px;
   max-height: 30%;
 }
-.container .tabla .pedido .carta__plato:hover .btn-sumar,
-.container .tabla .pedido .carta__plato:hover .btn-restar {
+.pos-container .tabla .pedido .carta__plato:hover .boton-sumar,
+.pos-container .tabla .pedido .carta__plato:hover .boton-restar {
   width: 70px;
   height: 70px;
   font-size: 1.5rem;
   color: white;
 }
-.container .tabla .pedido .carta__plato:hover .btn-sumar:hover,
-.container .tabla .pedido .carta__plato:hover .btn-restar:hover {
+.pos-container .tabla .pedido .carta__plato:hover .boton-sumar:hover,
+.pos-container .tabla .pedido .carta__plato:hover .boton-restar:hover {
   background-color: transparent;
   font-size: 2rem;
 }
-.container .tabla .pedido .boleta {
+.pos-container .tabla .pedido .boleta {
   width: 400px;
 }
-.container .tabla .pedido .boleta h3 {
+.pos-container .tabla .pedido .boleta h3 {
   height: 60px;
   display: flex;
   align-self: center;
@@ -209,41 +209,41 @@ body {
   text-align: center;
   padding: 8px;
 }
-.container .tabla .pedido .boleta .comanda {
+.pos-container .tabla .pedido .boleta .comanda {
   background-color: #eee;
-  /* background: url("./../img/comanda.png") no-repeat; */
+  background: url("/assets/img/comanda.png") no-repeat;
   background-size: cover;
   border-radius: 15px;
   margin-top: 10px;
   padding: 25px 15px 10px 40px;
   box-shadow: 0px 4px 10px #666;
 }
-.container .tabla .pedido .boleta .comanda__item {
+.pos-container .tabla .pedido .boleta .comanda__item {
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
   padding: 5px;
   border-radius: 8px;
 }
-.container .tabla .pedido .boleta .comanda__item:nth-child(odd) {
+.pos-container .tabla .pedido .boleta .comanda__item:nth-child(odd) {
   background-color: #ebebeb;
 }
-.container .tabla .pedido .boleta .comanda__nombre {
+.pos-container .tabla .pedido .boleta .comanda__nombre {
   flex: 50%;
   display: flex;
   flex-direction: column;
 }
-.container .tabla .pedido .boleta .comanda__nombre span:nth-child(2) {
+.pos-container .tabla .pedido .boleta .comanda__nombre span:nth-child(2) {
   margin-top: -5px;
   font-size: 0.9rem;
 }
-.container .tabla .pedido .boleta .comanda__cantidad,
-.container .tabla .pedido .boleta .comanda__precio {
+.pos-container .tabla .pedido .boleta .comanda__cantidad,
+.pos-container .tabla .pedido .boleta .comanda__precio {
   flex: 25%;
   text-align: center;
 }
 
-.btn {
+.boton {
   height: 40px;
   outline: none;
   padding: 10px;
@@ -253,22 +253,22 @@ body {
   color: white;
   background-color: transparent;
 }
-.btn-primary {
+.boton-primary {
   background-color: #ff9c63;
 }
-.btn-success {
+.boton-success {
   background-color: #58bf81;
 }
-.btn-outline-primary {
+.boton-outline-primary {
   border: 1px solid #ff9c63;
   color: #ff9c63;
 }
-.btn-outline-primary:hover,
-.btn-outline-primary.active {
+.boton-outline-primary:hover,
+.boton-outline-primary.activo {
   background-color: #ff9c63;
   color: #ddd;
 }
 
-.btn-sumar {
+.boton-sumar {
   margin-left: 10px;
 }
