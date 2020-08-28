@@ -7,7 +7,7 @@ import AdminPedidos from "../modules/admin/screens/AdminPedidos";
 import AdminPlatos from "../modules/admin/screens/AdminPlatos";
 import AdminHeader from "../modules/admin/components/AdminHeader";
 import AdminPedidosDetalle from "../modules/admin/screens/AdminPedidosDetalle";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const RouterAdmin = () => {
   return (
     <>
@@ -17,7 +17,10 @@ const RouterAdmin = () => {
           <Route path={"/admin/dashboard"} component={AdminDashboard} />
           <Route path={"/admin/categorias"} component={AdminCategorias} />
           <Route path={"/admin/mesas"} component={AdminMesas} />
-          <Route path={"/admin/pedidos/:pedido_id"} component={AdminPedidosDetalle} />
+          <Route
+            path={"/admin/pedidos/:pedido_id"}
+            component={AdminPedidosDetalle}
+          />
           <Route path={"/admin/pedidos"} component={AdminPedidos} />
           <Route path={"/admin/platos"} component={AdminPlatos} />
           <Redirect to={"/admin/dashboard"} />
