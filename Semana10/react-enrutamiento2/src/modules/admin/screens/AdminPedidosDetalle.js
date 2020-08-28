@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { getPedidosById } from "../../../services/pedidos";
 import Cargando from "../components/Cargando";
 
-const AdminPedidosDetalle = () => {
+const AdminPedidosDetalle = ({ history }) => {
   // console.log(props.match.params.pedido_id);
   const { pedido_id } = useParams();
   const [pedido, setPedido] = useState({});
@@ -18,7 +19,7 @@ const AdminPedidosDetalle = () => {
       }
       setLoading(false);
     });
-  }, []);
+  }, [pedido_id]);
 
   return (
     <>
@@ -104,19 +105,61 @@ const AdminPedidosDetalle = () => {
                   <h4 className="card-title">Detalle del Pedido</h4>
                 </div>
                 <div className="card-body">
-                  <table className="table table-hover table-striped table-bordered">
+                  <table className="table table-hover table-striped table-bordered text-center">
                     <thead>
                       <tr>
                         <th>#</th>
                         <th>Cant.</th>
                         <th>Descripción</th>
+                        <th>Imagen</th>
                         <th>P. Unitario</th>
                         <th>P. Total</th>
                       </tr>
                     </thead>
+                    <tbody>
+                      {pedido.PedidoPlatos.map((objPedido, i) => {
+                        return (
+                          <tr key={objPedido.pedidoplato_id}>
+                            <td>{i + 1}</td>
+                            <td>{objPedido.pedidoplato_cant}</td>
+                            <td>{objPedido.Plato.plato_nom}</td>
+                            <td>
+                              <img
+                                src={objPedido.Plato.plato_img}
+                                style={{
+                                  height: "100px",
+                                }}
+                                alt={"imagen del plato"}
+                              />
+                            </td>
+                            <td>S/ {objPedido.Plato.plato_pre}</td>
+                            <td>
+                              S/{" "}
+                              {(
+                                +objPedido.pedidoplato_cant *
+                                +objPedido.Plato.plato_pre
+                              ).toFixed(2)}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
                   </table>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="row mt-4 justify-content-end">
+            <div className="col-md-2">
+              <button
+                className="btn btn-block btn-dark"
+                onClick={() => {
+                  // history.goBack();
+                  history.push("/admin/pedidos");
+                }}
+              >
+                <i className="fas fa-chevron-left"></i> Atrás
+              </button>
             </div>
           </div>
         </>

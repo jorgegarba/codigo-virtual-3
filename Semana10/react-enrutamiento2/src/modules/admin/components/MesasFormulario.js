@@ -12,7 +12,7 @@ const MesasFormulario = ({ obtenerMesas, modo, mesa, setModo, setMesa }) => {
     if (modo === "editar") {
       setForm(mesa);
     }
-  }, [mesa]);
+  }, [mesa, modo]);
 
   const handleChange = (e) => {
     setForm({
