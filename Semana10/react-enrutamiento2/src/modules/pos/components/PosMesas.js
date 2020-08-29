@@ -10,7 +10,10 @@ const PosMesas = () => {
     <div className="mesas">
       <ul className="mesas__lista">
         {loading && <PosCargando />}
-        {!loading && <PosMesaItem />}
+        {!loading &&
+          result.content.map((objMesa) => {
+            return <PosMesaItem objMesa={objMesa} key={objMesa.mesa_id} />;
+          })}
       </ul>
       <div className="mesas__info"></div>
     </div>

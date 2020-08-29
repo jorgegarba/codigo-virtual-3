@@ -4,9 +4,10 @@ import Pos from "../modules/pos/screens/Pos";
 import "./../modules/pos/styles/pos.css";
 import PosHeader from "../modules/pos/components/PosHeader";
 import PosNavigation from "../modules/pos/components/PosNavigation";
+import PosState from "../context/pos/posState";
 const RouterPos = () => {
   return (
-    <>
+    <PosState>
       <PosHeader />
       <main className="pos-container">
         <PosNavigation />
@@ -14,7 +15,7 @@ const RouterPos = () => {
           <Route path={"/pos"} component={Pos} />
         </Switch>
       </main>
-    </>
+    </PosState>
   );
 };
 
