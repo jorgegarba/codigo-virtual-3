@@ -1,12 +1,24 @@
 import React from "react";
+import { useFetch } from "../../../hooks/useFetch";
+import PosCargando from "./PosCargando";
 
 const PosCategorias = () => {
+  const { result, loading } = useFetch("/categoria");
+
   return (
     <div className="carta__categorias">
-      <button className="boton boton-outline-primary activo">Comida</button>
-      <button className="boton boton-outline-primary">Bebida</button>
-      <button className="boton boton-outline-primary">Jugos</button>
-      <button className="boton boton-outline-primary">Postres</button>
+      {loading && <PosCargando />}
+      {!loading &&
+        result.content.map((objCategoria) => {
+          return (
+            <button
+              className="boton boton-outline-primary"
+              key={objCategoria.categoria_id}
+            >
+              {objCategoria.categoria_nom}
+            </button>
+          );
+        })}
     </div>
   );
 };
