@@ -3,16 +3,26 @@ import PosReducer from "./posReducer";
 import PosContext from "./posContext";
 
 const PosState = (props) => {
-  const [state, setState] = useReducer(() => {}, {
-                                                    mesa_id: null,
-                                                    saludo: "Hola",
-                                                  });
+  const [state, dispatch] = useReducer(PosReducer, {
+    globalObjMesa: null,
+  });
+
+  /**
+   * A continuación, la lista de funciones que intentarán modificar el estado
+   */
+
+  const seleccionarMesa = (objMesa) => {
+    dispatch({
+      type: "SELECCIONAR_MESA",
+      data: { ...objMesa },
+    });
+  };
 
   return (
     <PosContext.Provider
       value={{
-        global_mesa_id: state.mesa_id,
-        global_saludo: state.saludo,
+        globalObjMesa: state.globalObjMesa,
+        seleccionarMesa: seleccionarMesa,
       }}
     >
       {props.children}
