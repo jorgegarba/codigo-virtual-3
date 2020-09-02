@@ -9,13 +9,16 @@ const PosComandaLista = () => {
   const pedidoActual = globalPedidos.find(
     (objPedido) => objPedido.mesa_id === globalObjMesa.mesa_id
   );
-  console.log(pedidoActual);
 
   return (
     <ul className="comanda__lista">
-      {pedidoActual.pedidoplatos.map((pedidoItem, i) => {
-        return <PosComandaListaItem key={i} pedidoItem={pedidoItem} />;
-      })}
+      {!pedidoActual ? (
+        <strong>No hay pedidos en esta mesa 🙄</strong>
+      ) : (
+        pedidoActual.pedidoplatos.map((pedidoItem, i) => {
+          return <PosComandaListaItem key={i} pedidoItem={pedidoItem} />;
+        })
+      )}
     </ul>
   );
 };

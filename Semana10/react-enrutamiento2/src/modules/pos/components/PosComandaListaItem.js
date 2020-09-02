@@ -4,6 +4,8 @@ import PosCargando from "./PosCargando";
 
 const PosComandaListaItem = ({ pedidoItem }) => {
   const { loading, result } = useFetch(`/plato/${pedidoItem.plato_id}`);
+  
+  // TODO: useCallback, useMemo
 
   return loading ? (
     <PosCargando />
