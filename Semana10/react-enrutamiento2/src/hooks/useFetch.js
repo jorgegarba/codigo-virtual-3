@@ -14,7 +14,7 @@ export const useFetch = (url) => {
       });
     };
     hacerFetch();
-  }, []);
+  }, [url]);
 
   return estado;
 };

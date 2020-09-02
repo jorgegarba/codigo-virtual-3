@@ -6,6 +6,11 @@ const PosReducer = (stateActual, action) => {
         globalObjMesa: action.data,
       };
       break;
+    case "SELECCIONAR_CATEGORIA":
+      return {
+        ...stateActual,
+        globalObjCategoria: action.data,
+      };
 
     default:
       break;
