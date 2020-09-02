@@ -1,17 +1,26 @@
 import React from "react";
+import { useFetch } from "../../../hooks/useFetch";
+import PosCargando from "./PosCargando";
 
-const PosComandaListaItem = () => {
-  return (
+const PosComandaListaItem = ({ pedidoItem }) => {
+  const { loading, result } = useFetch(`/plato/${pedidoItem.plato_id}`);
+
+  return loading ? (
+    <PosCargando />
+  ) : (
     <li className="comanda__item">
       <p className="comanda__nombre">
         <span>
-          <strong>Arroz Chaufa de Pollo</strong>
+          <strong>{result.content.plato_nom}</strong>
         </span>
-        <span>Precio: S/ 35.00</span>
+        <span>Precio: S/ {result.content.plato_pre}</span>
       </p>
-      <p className="comanda__cantidad">01</p>
+      <p className="comanda__cantidad">{pedidoItem.pedidoplato_cant}</p>
       <p className="comanda__precio">
-        <strong>S/ 35.00</strong>
+        <strong>
+          S/{" "}
+          {(+result.content.plato_pre * +pedidoItem.pedidoplato_cant).toFixed(2)}
+        </strong>
       </p>
     </li>
   );
