@@ -7,7 +7,7 @@ import PosContext from "../../../context/pos/posContext";
 
 const Pos = () => {
   const localPosContext = useContext(PosContext);
-  const { globalObjMesa } = localPosContext;
+  const { globalObjMesa, globalPagar } = localPosContext;
 
   return (
     <section className="tabla">
@@ -26,7 +26,12 @@ const Pos = () => {
                 <p className="comanda__usuario">Carlos Jimenez</p>
                 <hr />
                 <PosComandaLista />
-                <button className="boton boton-success boton-block">
+                <button
+                  className="boton boton-success boton-block"
+                  onClick={() => {
+                    globalPagar();
+                  }}
+                >
                   PAGAR
                 </button>
               </>

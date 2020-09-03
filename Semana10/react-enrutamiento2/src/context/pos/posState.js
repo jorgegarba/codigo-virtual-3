@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import PosReducer from "./posReducer";
 import PosContext from "./posContext";
+import { posPedido } from "../../services/pedidos";
 
 const PosState = (props) => {
   const [state, dispatch] = useReducer(PosReducer, {
@@ -133,6 +134,20 @@ const PosState = (props) => {
     }
   };
 
+  const globalPagar = () => {
+    const { globalPedidos, globalObjMesa } = state;
+
+    let pedidoActual = globalPedidos.find(
+      (objPedido) => objPedido.mesa_id === globalObjMesa.mesa_id
+    );
+    pedidoActual.pedido_fech = "2020-09-02 20:00:00";
+    pedidoActual.usu_id = 1;
+
+    posPedido(pedidoActual).then((rpta) => {
+      console.log(rpta);
+    });
+  };
+
   return (
     <PosContext.Provider
       value={{
@@ -142,6 +157,7 @@ const PosState = (props) => {
         seleccionarCategoria: seleccionarCategoria,
         seleccionarMesa: seleccionarMesa,
         incrementarPlato: incrementarPlato,
+        globalPagar: globalPagar,
       }}
     >
       {props.children}
