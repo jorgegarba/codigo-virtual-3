@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import AuthLogin from "../modules/auth/screens/AuthLogin";
 import AuthRegister from "../modules/auth/screens/AuthRegister";
 import AuthRecover from "../modules/auth/screens/AuthRecover";
+import "./../modules/auth/styles/auth.css";
 const RouterAuth = () => {
   return (
     <>
