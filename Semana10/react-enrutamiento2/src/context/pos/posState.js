@@ -10,22 +10,18 @@ const PosState = (props) => {
       {
         mesa_id: 1,
         pedido_nro: "800",
-        pedido_est: "pagado",
+        pedido_est: "pendiente",
         pedidoplatos: [
           {
             plato_id: 1,
             pedidoplato_cant: 5,
-          },
-          {
-            plato_id: 2,
-            pedidoplato_cant: 1,
           },
         ],
       },
       {
         mesa_id: 2,
         pedido_nro: "900",
-        pedido_est: "pagado",
+        pedido_est: "pendiente",
         pedidoplatos: [
           {
             plato_id: 1,
@@ -81,7 +77,7 @@ const PosState = (props) => {
             if (objPedido.mesa_id === globalObjMesa.mesa_id) {
               objPedido.pedidoplatos.forEach((objPlato) => {
                 if (objPlato.plato_id === plato_id) {
-                  objPlato.pedidoplato_cant += 1;
+                  objPlato.pedidoplato_cant = objPlato.pedidoplato_cant + 1;
                 }
               });
               return objPedido;
@@ -94,9 +90,46 @@ const PosState = (props) => {
           type: "ACTUALIZAR_GLOBAL_PEDIDOS",
           data: globalPedidosNuevo,
         });
+      } else {
+        // La mesa, sí tenía un pedido pero no tenía el plato el cual estamos incrementando
+        // ES DECIR habían otros platos en la orden.
+        const globalPedidosNuevo = [
+          ...globalPedidos.map((objPedido) => {
+            if (objPedido.mesa_id === globalObjMesa.mesa_id) {
+              objPedido.pedidoplatos.push({
+                plato_id: plato_id,
+                pedidoplato_cant: 1,
+              });
+              return objPedido;
+            }
+            return objPedido;
+          }),
+        ];
+        dispatch({
+          type: "ACTUALIZAR_GLOBAL_PEDIDOS",
+          data: globalPedidosNuevo,
+        });
       }
     } else {
       // si la mesa actual seleccionada no tuviera ningun pedido
+      const globalPedidosNuevo = [
+        ...globalPedidos,
+        {
+          mesa_id: globalObjMesa.mesa_id,
+          pedido_nro: "1000",
+          pedido_est: "pendiente",
+          pedidoplatos: [
+            {
+              plato_id: plato_id,
+              pedidoplato_cant: 1,
+            },
+          ],
+        },
+      ];
+      dispatch({
+        type: "ACTUALIZAR_GLOBAL_PEDIDOS",
+        data: globalPedidosNuevo,
+      });
     }
   };
 
