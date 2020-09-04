@@ -1,0 +1,55 @@
+import React, { useReducer } from "react";
+import AuthReducer from "./authReducer";
+import AuthContext from "./authContext";
+
+const AuthState = (props) => {
+  const [state, dispatch] = useReducer(AuthReducer, {
+    autenticado: false,
+    usu_nom: null,
+    usu_id: null,
+    token: null,
+  });
+
+  const iniciarSesionConLocalStorage = () => {
+    if (!localStorage.getItem("token")) return;
+    const token = localStorage.getItem("token");
+
+    const payloadEnc = token.split(".")[1];
+    const payloadDes = window.atob(payloadEnc);
+    const payloadJSON = JSON.parse(payloadDes);
+    
+
+  };
+
+  const iniciarSesion = (token) => {
+    const payloadEnc = token.split(".")[1];
+    /**
+     * window.atob("algoencriptadoenBASE64") retorna el contenido desencriptado
+     * window.btoa("algoquequeremosencriptar") retorna el contenido encriptado
+     */
+    const payloadDes = window.atob(payloadEnc);
+    const payloadJSON = JSON.parse(payloadDes);
+    localStorage.setItem("token", token);
+    dispatch({
+      type: "INICIAR_SESION",
+      data: {
+        ...payloadJSON,
+        token,
+      },
+    });
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{
+        autenticado: state.autenticado,
+        usu_nom: state.usu_nom,
+        usu_id: state.usu_id,
+        iniciarSesion: iniciarSesion,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
+};
+export default AuthState;

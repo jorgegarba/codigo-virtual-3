@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { postRegister } from "../../../services/auth";
+import AuthContext from "../../../context/auth/authContext";
 
-const AuthRegister = () => {
+const AuthRegister = ({ history }) => {
+  const localAuthContext = useContext(AuthContext);
+  const { iniciarSesion } = localAuthContext;
+
   const [formulario, setFormulario] = useState({
     usu_email: "",
     usu_nom: "",
@@ -34,9 +38,15 @@ const AuthRegister = () => {
         password: pass1,
         usu_tipo: "admin",
       };
-      postRegister(objUsuario).then((rpta)=>{
+      postRegister(objUsuario).then((rpta) => {
         console.log(rpta);
-      })
+        if (rpta.ok) {
+          iniciarSesion(rpta.token);
+          // history.replace("ruta") borra el historial de paginas visitadas en el dominio
+          // y cancela la posibilidad de hacer "Atrás" en el navegador
+          history.replace("/pos");
+        }
+      });
     }
   };
 

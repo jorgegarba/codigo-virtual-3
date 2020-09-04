@@ -7,6 +7,9 @@ import RouterPos from "./RouterPos";
 import RutaPrivada from "./RutaPrivada";
 
 const RouterMain = () => {
+
+  
+
   return (
     <Router>
       <Switch>
