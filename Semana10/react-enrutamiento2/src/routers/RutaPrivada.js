@@ -4,13 +4,17 @@ import AuthContext from "../context/auth/authContext";
 
 const RutaPrivada = ({ path, componente: Componente }) => {
   const localAuthContext = useContext(AuthContext);
-  const { autenticado } = localAuthContext;
+  const { autenticado, cargando } = localAuthContext;
 
-  return autenticado ? (
-    <Route path={path} component={Componente} />
-  ) : (
-    <Redirect to={"/"} />
-  );
+  if (cargando) {
+    return <h5>Cargando...</h5>;
+  } else {
+    return autenticado ? (
+      <Route path={path} component={Componente} />
+    ) : (
+      <Redirect to={"/"} />
+    );
+  }
 };
 
 export default RutaPrivada;

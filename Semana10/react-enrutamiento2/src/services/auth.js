@@ -11,3 +11,14 @@ export const postRegister = async (objUsuario) => {
   const json = await response.json();
   return json;
 };
+
+export const postVerificar = async (token) => {
+  const response = await fetch(`${URL_BACKEND_HEROKU}/verificar`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const json = await response.json();
+  return json.ok;
+};

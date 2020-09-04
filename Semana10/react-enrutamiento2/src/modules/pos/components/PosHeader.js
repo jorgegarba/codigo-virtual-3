@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../../context/auth/authContext";
 
 const PosHeader = () => {
+  const localAuthContext = useContext(AuthContext);
+  const { usu_nom } = localAuthContext;
   return (
     <header className="header">
       <div className="header__logo">
@@ -16,7 +19,7 @@ const PosHeader = () => {
       </div>
       <div className="header__usuario">
         <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="" />
-        <span>Jorge Garnica</span>
+        <span>{usu_nom}</span>
       </div>
     </header>
   );
