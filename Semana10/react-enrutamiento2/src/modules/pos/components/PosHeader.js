@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import AuthContext from "../../../context/auth/authContext";
+import { withRouter } from "react-router-dom";
 
-const PosHeader = () => {
+const PosHeader = ({ history }) => {
   const localAuthContext = useContext(AuthContext);
-  const { usu_nom } = localAuthContext;
+  const { usu_nom, cerrarSesion } = localAuthContext;
   return (
     <header className="header">
       <div className="header__logo">
@@ -20,9 +21,21 @@ const PosHeader = () => {
       <div className="header__usuario">
         <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="" />
         <span>{usu_nom}</span>
+        <button
+          className="boton boton-success"
+          onClick={() => {
+            cerrarSesion();
+            history.replace("/");
+          }}
+        >
+          Cerrar Sesión
+        </button>
       </div>
     </header>
   );
 };
 
-export default PosHeader;
+// Cuando envolvemos un compoennte en la función withRouter,
+// éste componente recibe en sus props, todos los parametros
+// del enrutador así como history, location, matchParams ,etc
+export default withRouter(PosHeader);

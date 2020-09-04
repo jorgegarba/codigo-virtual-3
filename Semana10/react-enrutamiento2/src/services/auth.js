@@ -22,3 +22,18 @@ export const postVerificar = async (token) => {
   const json = await response.json();
   return json.ok;
 };
+
+export const postLogin = async (correo, password) => {
+  const response = await fetch(`${URL_BACKEND_HEROKU}/login`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      correo: correo,
+      password: password,
+    }),
+  });
+  const json = await response.json();
+  return json;
+};

@@ -8,6 +8,15 @@ const AuthReducer = (stateActual, action) => {
         token: action.data.token,
         cargando: false,
       };
+    case "CERRAR_SESION":
+      localStorage.removeItem("token");
+      return {
+        autenticado: false,
+        usu_nom: null,
+        usu_id: null,
+        token: null,
+        cargando: false,
+      };
 
     default:
       return { ...stateActual };

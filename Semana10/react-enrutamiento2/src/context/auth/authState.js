@@ -32,7 +32,9 @@ const AuthState = (props) => {
               token,
             },
           })
-        : dispatch({});
+        : dispatch({
+            type: "CERRAR_SESION",
+          });
     });
   };
 
@@ -54,6 +56,12 @@ const AuthState = (props) => {
     });
   };
 
+  const cerrarSesion = () => {
+    dispatch({
+      type: "CERRAR_SESION",
+    });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -62,6 +70,7 @@ const AuthState = (props) => {
         usu_id: state.usu_id,
         cargando: state.cargando,
         iniciarSesion: iniciarSesion,
+        cerrarSesion,
       }}
     >
       {props.children}
