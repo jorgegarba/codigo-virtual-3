@@ -1,0 +1,8 @@
+// Variables
+$color-fondo: #ddd;
+$color-texto: #444;
+
+@mixin centrar-flex {
+  justify-content: center;
+  align-items: center;
+}

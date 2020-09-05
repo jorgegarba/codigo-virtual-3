@@ -1,0 +1,22 @@
+$colores: red, blue, yellow;
+
+.header {
+  height: 60px;
+  background-color: $color-texto;
+  .header__nav {
+    height: 100%;
+    .header__lista {
+      height: 100%;
+      display: flex;
+      @include centrar-flex();
+      @each $color in $colores {
+        .header__item-#{$color} {
+          background-color: $color;
+        }
+      }
+      .header__item {
+        flex: 1;
+      }
+    }
+  }
+}

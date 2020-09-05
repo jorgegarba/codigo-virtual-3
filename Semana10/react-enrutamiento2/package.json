@@ -2,13 +2,11 @@
   "name": "react-enrutamiento2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jorgegarba.github.io/react-reploy",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.2",
-    "gh-pages": "^3.1.0",
     "leaflet": "^1.7.1",
     "mapbox-gl": "^1.12.0",
     "mdbreact": "^4.27.0",
@@ -19,7 +17,6 @@
     "react-mapbox-gl": "^4.8.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "save-dev": "0.0.1-security",
     "socket.io-client": "^2.3.0",
     "sweetalert2": "^9.17.1"
   },
