@@ -12,8 +12,15 @@ const AdminDashboard = () => {
   });
   useEffect(() => {
     const socket = io(URL_BACKEND_HEROKU);
+
+    socket.on("connect", () => {
+      // emit("evento") => disparar un mensaje hacia el socket backend
+      socket.emit("peticion-reporte-dashboard");
+    });
+
     socket.on("reporte-dashboard", (dataString) => {
       const dataJSON = JSON.parse(dataString);
+      console.log(dataString);
       setReporte(dataJSON);
       /**
        * {
