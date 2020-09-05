@@ -1,41 +1,19 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import PosReducer from "./posReducer";
 import PosContext from "./posContext";
 import { posPedido } from "../../services/pedidos";
+import moment from "moment";
+import AuthContext from "./../../context/auth/authContext";
 
 const PosState = (props) => {
   const [state, dispatch] = useReducer(PosReducer, {
     globalObjMesa: null,
     globalObjCategoria: null,
-    globalPedidos: [
-      {
-        mesa_id: 1,
-        pedido_nro: "800",
-        pedido_est: "pendiente",
-        pedidoplatos: [
-          {
-            plato_id: 1,
-            pedidoplato_cant: 5,
-          },
-        ],
-      },
-      {
-        mesa_id: 2,
-        pedido_nro: "900",
-        pedido_est: "pendiente",
-        pedidoplatos: [
-          {
-            plato_id: 1,
-            pedidoplato_cant: 5,
-          },
-          {
-            plato_id: 2,
-            pedidoplato_cant: 1,
-          },
-        ],
-      },
-    ],
+    globalPedidos: [],
   });
+
+  const localAuthContext = useContext(AuthContext);
+  const { usu_id } = localAuthContext;
 
   /**
    * A continuación, la lista de funciones que intentarán modificar el estado
@@ -136,15 +114,26 @@ const PosState = (props) => {
 
   const globalPagar = () => {
     const { globalPedidos, globalObjMesa } = state;
-
     let pedidoActual = globalPedidos.find(
       (objPedido) => objPedido.mesa_id === globalObjMesa.mesa_id
     );
-    pedidoActual.pedido_fech = "2020-09-02 20:00:00";
-    pedidoActual.usu_id = 1;
+    const fechaActual = moment().format("YYYY-MM-DD hh:mm:ss");
+    pedidoActual.pedido_fech = fechaActual;
+    pedidoActual.usu_id = usu_id;
 
     posPedido(pedidoActual).then((rpta) => {
-      console.log(rpta);
+      if (rpta.ok) {
+        // limpiar la mesa del arreglo de pedidos globales
+        const globalPedidosNuevo = [
+          ...globalPedidos.filter(
+            (objPedido) => objPedido.mesa_id !== globalObjMesa.mesa_id
+          ),
+        ];
+        dispatch({
+          type: "ACTUALIZAR_GLOBAL_PEDIDOS",
+          data: globalPedidosNuevo,
+        });
+      }
     });
   };
 

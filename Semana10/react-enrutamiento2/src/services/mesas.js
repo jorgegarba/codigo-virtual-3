@@ -1,7 +1,7 @@
-import { URL_BACKEND } from "../enviroment/enviroment";
+import { URL_BACKEND, URL_BACKEND_HEROKU } from "../enviroment/enviroment";
 
 export const getMesas = async () => {
-  const response = await fetch(`${URL_BACKEND}/mesas`);
+  const response = await fetch(`${URL_BACKEND_HEROKU}/mesa`);
   const json = await response.json();
   return json;
 };
