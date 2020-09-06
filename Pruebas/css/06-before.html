@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .main {
+        display: flex;
+        min-height: 100vh;
+        background-color: #ddd;
+      }
+      .aside {
+        flex: 1;
+        background-color: brown;
+      }
+      p {
+        width: 500px;
+        background-color: blue;
+      }
+      p::before {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+      }
+      .section {
+        flex: 1;
+        background-color: cornflowerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main">
+      <aside class="aside">
+        <p>
+          Lorem ipsum dollaksdlakmsdlkasmñasdm alsd lkasdlkm ñalsdñlas 
+        </p>
+        <article style="width: 500px; background-color: chartreuse;">
+          otro artivcle
+        </article>
+      </aside>
+      <section class="section"></section>
+    </main>
+  </body>
+</html>

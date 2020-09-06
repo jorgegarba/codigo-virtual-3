@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("./01-estilos.css");
+      body {
+        background: hsl(360, 100%, 90%);
+      }
+      div:not(.contenido) {
+        text-align: right;
+        background: hsl(360, 100%, 50%);
+      }
+      p {
+        color: hsl(120, 100%, 20%);
+        width: 200px;
+        height: 200px;
+        border: 1px solid;
+        margin-top: 40px;
+        overflow-wrap: normal;
+        /* display: inline-block; */
+      }
+      .margen-izquierda {
+        margin-left: 20px;
+      }
+      .margen-derecha {
+        margin-right: 20px;
+      }
+      section {
+        border: 1px solid;
+        margin-top: 50px;
+        background-color: indianred;
+      }
+
+      article {
+        background-color: indigo;
+        height: 200px;
+        background-image: url("./imagen.png");
+        background-repeat: no-repeat;
+        background-size: 200px;
+        background-position: center;
+        /* background-attachment: fixed; */
+      }
+
+      .fondo {
+        height: 200px;
+        background-image: url("./imagen.png");
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      div.contenido {
+        height: 200px;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      Hola
+    </div>
+    <p class="margen-derecha">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nulla
+      est nihil quibusdam delectus dignissimos animi eum quam, perspiciatis
+      labore, similique veritatis corrupti, at neque?
+    </p>
+    <section>
+      <p class="margen-izquierda">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nulla
+        est nihil quibusdam delectus dignissimos animi eum quam, perspiciatis
+        labore, simiquam veritatis corrupti, at neque?
+      </p>
+    </section>
+    <article></article>
+    <section class="fondo">
+      <div class="contenido">
+        <h1 style="color: white;">
+          Titlo
+        </h1>
+      </div>
+    </section>
+  </body>
+</html>

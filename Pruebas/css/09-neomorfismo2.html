@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./09-neomorfismo2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="button">
+        <span>
+          <i class="fas fa-angle-left"></i>
+        </span>
+      </div>
+      <div class="button">
+        <span>
+          <i class="fas fa-angle-right"></i>
+        </span>
+      </div>
+    </div>
+    <script>
+      /*Capturamos nuestros elementos botones y los guardamos en una constante llamada buttons.*/
+      const buttons = document.querySelectorAll(".button");
+      /*Recordemos que document.querySelectorAll nos devuelve una lista con los elementos encontrados en el DOM, por lo que es necesario recorrer con un bucle nuestros elementos capturados, en este caso con bucle for. Luego agregamos el evento clic a los elementos encontrados e intercalamos la clase <.button--active> con classList.toggle.*/
+      for (const button of buttons) {
+        button.addEventListener("click", () => {
+          button.classList.toggle("button--active");
+        });
+      }
+    </script>
+  </body>
+</html>

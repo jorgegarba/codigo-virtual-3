@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 1px solid;
+  position: relative;
+  left: 20px;
+}
+
+section {
+  width: 200px;
+  height: 200px;
+}
+
+.section1 {
+  background-color: indianred;
+  position: relative;
+  top: 60px;
+}
+.section2 {
+  background-color: indigo;
+  position: absolute;
+  top: 0;
+}

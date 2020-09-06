@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  height: 60px;
+
+  &__logo {
+    max-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-height: calc(100% - 10px);
+    }
+  }
+  &__buscador {
+    padding-left: 50px;
+    flex: 1;
+    display: flex;
+    img {
+    }
+    input {
+      flex: 1;
+      background-color: $fondo;
+      outline: none;
+      border: none;
+      color: $color-texto;
+      padding: 10px;
+      font-size: 1.2rem;
+    }
+  }
+  &__usuario {
+    color: $color-texto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 250px;
+
+    img {
+      height: calc(100% - 10px);
+      border-radius: 50%;
+    }
+  }
+}

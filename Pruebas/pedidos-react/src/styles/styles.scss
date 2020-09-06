@@ -1,0 +1,275 @@
+@import "./base/base";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  background-color: $fondo;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  display: flex;
+  height: 60px;
+
+  &__logo {
+    max-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-height: calc(100% - 10px);
+    }
+  }
+  &__buscador {
+    padding-left: 50px;
+    flex: 1;
+    display: flex;
+    img {
+    }
+    input {
+      flex: 1;
+      background-color: $fondo;
+      outline: none;
+      border: none;
+      color: $color-texto;
+      padding: 10px;
+      font-size: 1.2rem;
+    }
+  }
+  &__usuario {
+    color: $color-texto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 250px;
+
+    img {
+      height: calc(100% - 10px);
+      border-radius: 50%;
+    }
+  }
+}
+.container {
+  display: flex;
+  .menu {
+    //nav
+    width: 80px;
+    // border: 1px solid white;
+    height: calc(100vh - 60px);
+    display: flex;
+    padding-top: 50px;
+    &__lista {
+      //ul
+
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      li {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-texto;
+        margin-bottom: 40px;
+        img {
+          width: 2.5rem;
+        }
+        span {
+          margin-top: 5px;
+          font-size: 0.8rem;
+        }
+        &:hover {
+          color: $color-secundario;
+          border-left: 4px solid $color-secundario;
+          // transform: translate(-4px, 0);
+        }
+      }
+    }
+  }
+  .tabla {
+    flex: 1;
+    border: 1px solid darken($color: $color-texto, $amount: 50%);
+    display: flex;
+    flex-direction: column;
+
+    .mesas {
+      color: $color-texto;
+      height: 80px;
+      // border: 1px solid white;
+      display: flex;
+      &__lista {
+        display: flex;
+        width: 80%;
+        li {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          flex: 1;
+          max-width: 100px;
+          // border: 1px solid green;
+          .mesas__numero {
+            font-size: 2rem;
+          }
+          &:hover {
+            background-color: lighten($color: $fondo, $amount: 5%);
+          }
+          &.active {
+            background-color: lighten($color: $fondo, $amount: 5%);
+            border-bottom: 4px solid $color-secundario;
+          }
+        }
+      }
+    }
+    .pedido {
+      padding: 20px;
+      flex: 1;
+      background-color: lighten($color: $fondo, $amount: 5%);
+      display: flex;
+      .carta {
+        flex: 1;
+        &__categorias {
+          // padding: 10px 0px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          button {
+            margin-right: 10px;
+          }
+        }
+        &__botones {
+          width: 100%;
+          display: flex;
+          justify-content: space-evenly;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        &__platos {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+        }
+        &__plato {
+          position: relative;
+          cursor: pointer;
+          color: $color-texto;
+          transition: 1s all ease;
+          &:hover {
+            box-shadow: inset 11px 11px 22px #030e21,
+              inset -11px -11px 22px #071e45;
+            color: lighten($color: $color-secundario, $amount: 25%);
+            img {
+              transform: scale(1.1);
+            }
+          }
+          border-radius: 36px;
+          background: linear-gradient(145deg, #051837, #05142e);
+          box-shadow: 11px 11px 22px #030e21, -11px -11px 22px #071e45;
+          width: calc(25%);
+          text-align: center;
+          margin: 10px;
+          // width: calc(25% - 20px);
+          padding: 10px;
+          img {
+            width: 50%;
+          }
+          * {
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .boleta {
+        width: 400px;
+        h3 {
+          height: 60px;
+          display: flex;
+          align-self: center;
+          justify-content: center;
+          color: white;
+          text-align: center;
+          padding: 8px;
+        }
+        .comanda {
+          background-color: #eee;
+          background: url("/assets/img/comanda.png") no-repeat;
+          background-size: cover;
+          border-radius: 15px;
+          margin-top: 10px;
+          padding: 25px 15px 10px 40px;
+
+          box-shadow: 0px 4px 10px #666;
+          &__lista {
+          }
+          &__item {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            border-radius: 8px;
+          }
+          &__item:nth-child(odd) {
+            background-color: #ebebeb;
+          }
+          &__nombre {
+            flex: 50%;
+            display: flex;
+            flex-direction: column;
+            // line-height: 1.1rem;
+            span:nth-child(2) {
+              margin-top: -5px;
+              font-size: 0.9rem;
+            }
+          }
+          &__cantidad,
+          &__precio {
+            flex: 25%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+.btn {
+  height: 40px;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  &-primary {
+    background-color: $color-secundario;
+  }
+  &-success {
+    background-color: $color-success;
+  }
+  &-outline-primary {
+    border: 1px solid $color-secundario;
+    color: $color-secundario;
+    &:hover,
+    &.active {
+      background-color: $color-secundario;
+      color: $color-texto;
+    }
+  }
+}
+
+.btn-sumar {
+  margin-left: 10px;
+}

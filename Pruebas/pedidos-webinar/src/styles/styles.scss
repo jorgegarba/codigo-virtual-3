@@ -1,0 +1,92 @@
+@import "./base";
+@import "./header";
+// @import "./platos";
+// @import "./formulario";
+// @import "./tabla";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  background-color: $fondo;
+  font-family: "Poppins", sans-serif;
+}
+
+.menu {
+  //nav
+  
+  width: 80px;
+  // border: 1px solid white;
+  height: calc(100vh - 60px);
+  display: flex;
+  padding-top: 50px;
+  &__lista {
+    //ul
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    li {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: $color-texto;
+      margin-bottom: 40px;
+      img {
+        width: 2.5rem;
+      }
+      span {
+        margin-top: 5px;
+        font-size: 0.8rem;
+      }
+      &:hover {
+        color: $color-secundario;
+        border-left: 4px solid $color-secundario;
+        // transform: translate(-4px, 0);
+      }
+    }
+  }
+}
+.container {
+  display: flex;
+}
+.btn {
+  height: 40px;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  &-primary {
+    background-color: $color-secundario;
+  }
+  &-success {
+    background-color: $color-success;
+  }
+  &-outline-primary {
+    border: 1px solid $color-secundario;
+    color: $color-secundario;
+    &:hover,
+    &.active {
+      background-color: $color-secundario;
+      color: $color-texto;
+    }
+  }
+}
+
+.btn-sumar {
+  margin-left: 10px;
+}
