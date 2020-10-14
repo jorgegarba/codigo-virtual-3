@@ -35,7 +35,7 @@ const AuthLogin = ({ history }) => {
       <div className="login__form">
         <h1>Inicio de Sesión</h1>
         <form className="formulario" onSubmit={onSubmit}>
-          <label for="">Email:</label>
+          <label htmlFor="">Email:</label>
           <input
             type="email"
             className="formulario__input"
@@ -44,7 +44,7 @@ const AuthLogin = ({ history }) => {
             value={formulario.email}
             onChange={handleChange}
           />
-          <label for="">Password:</label>
+          <label htmlFor="">Password:</label>
           <input
             type="password"
             className="formulario__input"

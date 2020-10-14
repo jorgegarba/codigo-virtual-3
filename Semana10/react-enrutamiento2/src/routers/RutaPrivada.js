@@ -5,7 +5,7 @@ import AuthContext from "../context/auth/authContext";
 const RutaPrivada = ({ path, componente: Componente }) => {
   const localAuthContext = useContext(AuthContext);
   const { autenticado, cargando } = localAuthContext;
-
+  console.log("ruta privada");
   if (cargando) {
     return <h5>Cargando...</h5>;
   } else {

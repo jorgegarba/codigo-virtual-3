@@ -17,12 +17,20 @@ const AuthState = (props) => {
   }, []);
 
   const iniciarSesionConLocalStorage = () => {
-    if (!localStorage.getItem("token")) return;
+    if (!localStorage.getItem("token")) {
+      /**
+       * Es necesario cerrar_sesion para que el estado de cargando cambie a
+       * false y de ést modo la ruta privada, redireccione a la landing page del proyecto
+       */
+      dispatch({
+        type: "CERRAR_SESION",
+      });
+      return;
+    }
     const token = localStorage.getItem("token");
     const payloadEnc = token.split(".")[1];
     const payloadDes = window.atob(payloadEnc);
     const payloadJSON = JSON.parse(payloadDes);
-
     postVerificar(token).then((rpta) => {
       rpta
         ? dispatch({
