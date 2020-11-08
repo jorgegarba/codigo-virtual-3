@@ -120,7 +120,8 @@ const PosState = (props) => {
     const fechaActual = moment().format("YYYY-MM-DD hh:mm:ss");
     pedidoActual.pedido_fech = fechaActual;
     pedidoActual.usu_id = usu_id;
-
+    console.log(pedidoActual);
+    return;
     posPedido(pedidoActual).then((rpta) => {
       if (rpta.ok) {
         // limpiar la mesa del arreglo de pedidos globales

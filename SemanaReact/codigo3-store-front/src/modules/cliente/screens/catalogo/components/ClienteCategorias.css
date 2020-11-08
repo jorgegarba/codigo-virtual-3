@@ -1,0 +1,10 @@
+.categoria__producto {
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.categoria__producto:hover {
+	background-color: #dc3545;
+	color: white;
+	font-size: 1.05rem;
+}
