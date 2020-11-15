@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { withRouter } from "react-router-dom";
+import AuthContext from '../../../context/auth/authContext';
 
-const ClienteHeader = () => {
+const ClienteHeader = ({ history }) => {
+  const { autenticado, username, cerrarSesion, cargando } = useContext(AuthContext);
+
+  const goLogin = () => history.push("/auth/login");
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-danger">
       <a className="navbar-brand" href="#">Navbar</a>
@@ -14,14 +20,30 @@ const ClienteHeader = () => {
           <li className="nav-item">
             <a className="nav-link" href="#">Link</a>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div className="dropdown-menu" aria-labelledby="dropdownId">
-              <a className="dropdown-item" href="#">Action 1</a>
-              <a className="dropdown-item" href="#">Action 2</a>
-            </div>
-          </li>
         </ul>
+        {
+          cargando ?
+            <span className="text-white my-2">
+              <strong> Cargando...</strong>
+            </span> :
+
+            autenticado ?
+              <>
+                <p className="text-white my-2 mr-2">
+                  <strong>{username}</strong>
+                </p>
+                <button className="btn btn-success my-2 mr-2" onClick={() => {
+                  cerrarSesion();
+                  goLogin();
+                }}>
+                  Cerrar Sesión
+              </button>
+              </> :
+              <button className="btn btn-warning my-2 mr-2"
+                onClick={() => {
+                  goLogin();
+                }}>Iniciar Sesión</button>
+        }
         <form className="form-inline my-2 my-lg-0">
           <input className="form-control mr-sm-2" type="text" placeholder="Search" />
           <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -31,4 +53,4 @@ const ClienteHeader = () => {
   )
 }
 
-export default ClienteHeader
+export default withRouter(ClienteHeader)
